@@ -14,14 +14,14 @@
 */
  -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<html>
 	<head>
+		{% load static %}
 		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
-		<title>gain_web_app</title>
+		<title>Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="" >
-		<link rel="stylesheet" type="text/css" href="/static/css/dashboard.css"
-		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=4"></script>
+		<link rel="stylesheet" href="{% static 'css/dashboard.css' %}" >
 		<!-- Add your custom HEAD content here -->
 
 	</head>
@@ -43,7 +43,7 @@
 
 					<div id="firstname_input_ek2"  >
 						<div id="rectangle_2_ek3"  ></div>
-						<img src="skins/slice_1_ek3.png" id="slice_1_ek3" />
+						<img  id="slice_1_ek3" />
 
 					</div>
 
@@ -56,7 +56,7 @@
 					</div>
 
 					<div id="nifty"  >
-						<img src="skins/nifty_ek1.png" id="nifty_ek1" />
+						<img  id="nifty_ek1" />
 
 					</div>
 

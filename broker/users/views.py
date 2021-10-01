@@ -9,11 +9,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import redirect 
-from broker.settings import URL_ROOT
-
 # Create your views here.
 def my_redirect(url):
-    return redirect(URL_ROOT + url)
+    return redirect(url)
 
 def LoginPage(request):
 
