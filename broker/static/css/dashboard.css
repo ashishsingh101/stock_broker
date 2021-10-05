@@ -4,16 +4,12 @@
 /* Only edit this if you know what you are doing! */
 
 html {
-	background: -webkit-linear-gradient(-90deg , rgba(21.25,20.19,20.19,1) 0%, rgba(21.25,20.19,20.19,0.8935546875) 24%, rgba(21.25,20.19,20.19,0.83849608898163) 42%, rgba(21.25,20.19,20.19,0.78724676370621) 62%, rgba(21.25,20.19,20.19,0.67907547950745) 86%, rgba(21.25,20.19,20.19,0.48237776756287) 100%, rgba(21.25,20.19,20.19,0) 100%);
-	background: -o-linear-gradient(-90deg , rgba(21.25,20.19,20.19,1) 0%, rgba(21.25,20.19,20.19,0.8935546875) 24%, rgba(21.25,20.19,20.19,0.83849608898163) 42%, rgba(21.25,20.19,20.19,0.78724676370621) 62%, rgba(21.25,20.19,20.19,0.67907547950745) 86%, rgba(21.25,20.19,20.19,0.48237776756287) 100%, rgba(21.25,20.19,20.19,0) 100%);
-	background: -moz-linear-gradient(-90deg , rgba(21.25,20.19,20.19,1) 0%, rgba(21.25,20.19,20.19,0.8935546875) 24%, rgba(21.25,20.19,20.19,0.83849608898163) 42%, rgba(21.25,20.19,20.19,0.78724676370621) 62%, rgba(21.25,20.19,20.19,0.67907547950745) 86%, rgba(21.25,20.19,20.19,0.48237776756287) 100%, rgba(21.25,20.19,20.19,0) 100%);
-	background: -ms-linear-gradient(-90deg , rgba(21.25,20.19,20.19,1) 0%, rgba(21.25,20.19,20.19,0.8935546875) 24%, rgba(21.25,20.19,20.19,0.83849608898163) 42%, rgba(21.25,20.19,20.19,0.78724676370621) 62%, rgba(21.25,20.19,20.19,0.67907547950745) 86%, rgba(21.25,20.19,20.19,0.48237776756287) 100%, rgba(21.25,20.19,20.19,0) 100%);
-	background: linear-gradient(180deg , rgba(21.25,20.19,20.19,1) 0%, rgba(21.25,20.19,20.19,0.8935546875) 24%, rgba(21.25,20.19,20.19,0.83849608898163) 42%, rgba(21.25,20.19,20.19,0.78724676370621) 62%, rgba(21.25,20.19,20.19,0.67907547950745) 86%, rgba(21.25,20.19,20.19,0.48237776756287) 100%, rgba(21.25,20.19,20.19,0) 100%);  
+	background:#262626 ;
 }
 
-body { padding: 0px; overflow-x:hidden;
+body { padding: 0px;
 	height: 100vh;
-	
+	overflow-y: scroll;
 }
 
 .header {
@@ -27,6 +23,7 @@ body { padding: 0px; overflow-x:hidden;
 }
 
 .header_logo {
+	margin-left: 5%;
 	display: inline-block;
 }
 
@@ -34,10 +31,10 @@ body { padding: 0px; overflow-x:hidden;
 	margin-left: 2%;
 	width: 60%;
 	display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
 
 position: relative;
 	
@@ -67,4 +64,82 @@ position: relative;
 	background-color:rgba(196,196,196,1);
 	background-size:cover;
 	border-radius: 50px;
+}
+
+.main_column {
+	float: left;
+	min-width: 900px;
+	width: 66%;
+	margin: 1%;
+	height: 100%;
+	align-items: center;
+}
+.side_column {
+	min-width: 400px;
+	float: left;
+	background: cornsilk;
+}
+.row:after {
+	float: left;
+	display: flex;
+}
+
+.index {
+	margin-top: 20px;
+	margin-left: 2%;
+	margin-bottom: 20px;
+}
+.index_logo {
+	margin-left: 3%;
+}
+.index div {
+	margin: 0 1% 1% 1%;
+	background: #6c1dcf;
+	border-radius: 12px;
+	position: relative;
+	width: 30%;
+	max-width: 273px;
+	height: 74px;
+	display: inline-block;
+}
+.nifty {
+	min-width:270px;
+}
+.sensex {
+	min-width: 270px;
+}
+
+.topgainer_logo {
+    margin-left: 3%;
+}
+.gainer {
+	margin-left: 2%;
+	margin-bottom: 3%;
+}
+.gainer div {
+	margin-left: 2%;
+    position: relative;
+	min-width: 152px;
+	width: 15%;
+    min-height: 152px;
+	height: 15%;
+    background: #5F8659;
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+	display: inline-block;
+}
+
+
+.toploser_logo {
+	margin-left: 3%;
+}
+.loser div {
+	margin-left: 1%;
+    position: relative;
+	width: 152px;
+    height: 150px;
+    background: #5F8659;
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+	display: inline-block;
 }
