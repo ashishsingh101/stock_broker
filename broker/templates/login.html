@@ -1,4 +1,3 @@
-{% load static %}
 
 <!-- 
 /*
@@ -30,7 +29,7 @@
 	@name gain_web_app
 */
 /* Only edit this if you know what you are doing! */
-body {font-family:"Arial"; margin: 0px; padding: 0px; overflow-x:hidden; }
+body {font-family:"Arial"; margin: 0px; padding: 0px; overflow-x:scroll; }
 
 /* Only edit this if you know what you are doing! */
 img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
@@ -273,7 +272,7 @@ div { position: absolute; }
 					</div>
 
                     <div id="login_button"  >
-                        <button type="submit" id="login" onclick='login_check()'>Log In</button> 
+                        <button type="submit" id="login" >Log In</button> 
                     </div>
 
 				 </form>
@@ -304,7 +303,7 @@ div { position: absolute; }
 
 			//handle successful response 
 			success : function(response) {
-				alert('success');
+				
 			},
 
 			//handle non-successful response

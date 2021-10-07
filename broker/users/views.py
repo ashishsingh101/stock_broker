@@ -5,23 +5,29 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import CustomUser
 import logging
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import redirect 
+from broker.settings import URL_ROOT
 # Create your views here.
 def my_redirect(url):
-    return redirect(url)
+    print('hello', URL_ROOT)
+    return redirect(URL_ROOT + url)
 
 def LoginPage(request):
 
-    if request.method == 'POST' and request.POST['action'] == 'login':
-        user = request.POST['user']
-        password = request.POST['password']
-        print(user, password)
+    user = request.user 
+    if user.is_authenticated:
+        return my_redirect("/")
 
-        user = authenticate(username=user, password=password)
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
         if user is not None:
+            login(request, user)
             return my_redirect('/')
         else:
             return my_redirect('/login/')
@@ -29,4 +35,12 @@ def LoginPage(request):
     return render(request, 'login.html', {})
 
 def SignupPage(request):
+
+    user = request.user 
+    if user.is_authenticated:
+        return my_redirect("/")
+
+    if request.method == 'POST':
+        pass 
+
     return render(request, 'signup.html', {})
