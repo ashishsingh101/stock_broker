@@ -115,7 +115,6 @@ scrollbar-width: none;
 .index {
 	margin-top: 20px;
 	margin-left: 2%;
-	margin-bottom: 20px;
 }
 .index_logo {
 	margin-left: 3%;
@@ -133,8 +132,24 @@ scrollbar-width: none;
 .nifty {
 	min-width:270px;
 }
-.sensex {
+.nifty_text {
+	margin-left: 5%;
+	color: whitesmoke;
+}
+#nifty_price {
+	margin-left: 5%;
+	color: whitesmoke;
+}
+.niftyBank {
 	min-width: 270px;
+}
+.niftyBank_text {
+	margin-left: 5%;
+	color: whitesmoke;
+}
+#niftyBank_price {
+	margin-left: 5%;
+	color: whitesmoke;
 }
 
 .topgainer_logo {

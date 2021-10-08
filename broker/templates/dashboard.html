@@ -51,10 +51,12 @@
 				<img class='index_logo' src="{% static 'media/image/index.png' %}" />
 				<div class='index'>
 					<div class='nifty'>
-
+						<p class='nifty_text'>NIFTY 50</p>
+						<p id='nifty_price'></p>
 					</div>
-					<div class='sensex'>
-
+					<div class='niftyBank'>
+						<p class='niftyBank_text'>NIFTY BANK</p>
+						<p id='niftyBank_price'></p>
 					</div>
 				</div>
 				<!--top gainer logo-->
@@ -107,4 +109,42 @@
 		</div>
 
 	</body>
+
+	<script>
+		window.onload = refresh_function()
+
+		function refresh_function() {
+			fetchdata()
+		}
+
+		function fetchdata() {
+			$.ajax({
+				url : "{% url 'dashboard' %}",
+				type : "POST",
+				data : {
+					'action' : 'dashboard_data',
+					csrfmiddlewaretoken: '{{ csrf_token }}' ,
+
+				},
+
+				success : function(response){
+					update_dashboard(response['niftyPrice'], response['niftyBankPrice'])
+					alert(response['niftyPrice']+' '+response['niftyBankPrice']);
+				},
+			});
+		}
+
+		function update_dashboard(niftyPrice, niftyBankPrice){
+			nifty_price = document.getElementById('nifty_price');
+			niftyBank_price = document.getElementById('niftyBank_price');
+
+			nifty_price.innerHTML = niftyPrice;
+			niftyBank_price.innerHTML = niftyBankPrice;
+		}
+
+		$(document).ready(function(){
+			setInterval(fetchdata,60000);
+		})
+
+	</script>
 </html>
