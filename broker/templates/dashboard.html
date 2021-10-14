@@ -52,16 +52,16 @@
 				<div class='index'>
 					<div class='nifty'>
 						<p class='nifty_text'>NIFTY 50</p>
-						<p id='nifty_price'></p>
+						<pre id='nifty_price' style="font-size: large;"></pre>
 					</div>
 					<div class='niftyBank'>
 						<p class='niftyBank_text'>NIFTY BANK</p>
-						<p id='niftyBank_price'></p>
+						<pre id='niftyBank_price' style="font-size: large;"></pre>
 					</div>
 				</div>
 				<!--top gainer logo-->
 				<img class='topgainer_logo' src="{% static 'media/image/topgainer.png' %}" />
-				<div class='gainer' >
+				<div id='gainer' >
 					<div >
 
 					</div>
@@ -81,7 +81,7 @@
 
 				<!--top loser logo-->
 				<img class='toploser_logo' src="{% static 'media/image/toploser.png' %}" />
-				<div class='gainer' >
+				<div id='loser' >
 					<div >
 
 					</div>
@@ -128,18 +128,73 @@
 				},
 
 				success : function(response){
-					update_dashboard(response['niftyPrice'], response['niftyBankPrice'])
-					alert(response['niftyPrice']+' '+response['niftyBankPrice']);
+					update_index(response['niftyPrice'], response['niftyBankPrice'],
+					             response['niftyChange'], response['niftyPChange'],
+								 response['niftyBankChange'], response['niftyBankPChange'] )
+					//alert(response['niftyPrice']+' '+response['niftyBankPrice']);
+					update_gainers(response['topGainers'], response['logos'])
+					update_losers(response['topLosers'], response['logos'])
+				    
 				},
 			});
 		}
 
-		function update_dashboard(niftyPrice, niftyBankPrice){
+		function update_losers(topLosers, logos) {
+			loser = document.getElementById('loser');
+			loser.innerHTML = ''
+
+			for(let i=0;i<topLosers.length;i++) {
+				console.log(topLosers[i]);
+
+				var div  = document.createElement('div');
+				var symbol = topLosers[i]['symbol'];
+				div.className = topLosers[i]['symbol'];
+				var p = document.createElement('p');
+				p.innerText = topLosers[i]['symbol'];
+
+				var logo = document.createElement('img');
+				logo.src = 'https://assets-netstorage.groww.in/stock-assets/logos/'+logos[topLosers[i]['symbol']]+'.png';
+
+				div.appendChild(p);
+				div.appendChild(logo);
+				loser.appendChild(div);
+			}
+		}
+
+		function update_gainers(topGainers, logos) {
+			gainer = document.getElementById('gainer');
+			gainer.innerHTML=''
+
+			for(let i=0;i<topGainers.length;i++) {
+				console.log(topGainers[i]);
+
+				var div  = document.createElement('div');
+				div.className = topGainers[i]['symbol'];
+				var p = document.createElement('p');
+				p.innerText = topGainers[i]['symbol'];
+				div.appendChild(p);
+				gainer.appendChild(div);
+			}
+		}
+
+		function update_index(niftyPrice, niftyBankPrice, niftyChange, niftyPChange, niftyBankChange, niftyBankPChange){
 			nifty_price = document.getElementById('nifty_price');
 			niftyBank_price = document.getElementById('niftyBank_price');
+            
+			if(niftyChange >=0){
+				nifty_price.innerHTML = '<font color="">'+niftyPrice+'</font>'+'  +'+niftyChange+'  +'+niftyPChange+'%';
+			}
+			else{
+				nifty_price.innerHTML = niftyPrice+'  -'+niftyChange+'  -'+niftyPChange+'%';
+			}
 
-			nifty_price.innerHTML = niftyPrice;
-			niftyBank_price.innerHTML = niftyBankPrice;
+			if(niftyBankChange >=0){
+				niftyBank_price.innerHTML = niftyBankPrice+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%';
+			}
+			else{
+				niftyBank_price.innerHTML = niftyBankPrice+'  -'+niftyBankChange+'  -'+niftyBankPChange+'%';
+			}
+			
 		}
 
 		$(document).ready(function(){

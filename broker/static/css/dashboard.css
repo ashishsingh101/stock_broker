@@ -42,7 +42,7 @@ body { padding: 0px;
 	align-items: center;
 	padding: 0px;
 
-position: relative;
+    position: relative;
 	
 }
 .input1 {
@@ -56,7 +56,6 @@ position: relative;
 	text-transform: uppercase;
 	-ms-border-radius: 50px;
 	-o-border-radius: 50px;
-	-moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
 	background:rgba(196,196,196,1);
@@ -103,7 +102,6 @@ width: 100%;
 height: 694px;
 overflow-y: scroll;
 background: rgba(61, 60, 60, 0.57);
-backdrop-filter: blur(4px);
 border-radius: 15px;
 -ms-overflow-style: none;
 scrollbar-width: none;
@@ -120,14 +118,15 @@ scrollbar-width: none;
 	margin-left: 3%;
 }
 .index div {
-	margin: 0 1% 1% 1%;
-	background: #6c1dcf;
+	margin: 0 1% 3% 1%;
 	border-radius: 12px;
 	position: relative;
 	width: 30%;
 	max-width: 273px;
 	height: 74px;
 	display: inline-block;
+	border-style: solid;
+	background: #6c1dcf;
 }
 .nifty {
 	min-width:270px;
@@ -155,34 +154,50 @@ scrollbar-width: none;
 .topgainer_logo {
     margin-left: 3%;
 }
-.gainer {
+#gainer {
 	margin-left: 2%;
 	margin-bottom: 3%;
 }
-.gainer div {
-	margin-left: 2%;
+#gainer div {
+	margin-left: 1%;
     position: relative;
 	min-width: 152px;
 	width: 15%;
     min-height: 152px;
 	height: 15%;
-    background: #5F8659;
-    backdrop-filter: blur(4px);
     border-radius: 12px;
 	display: inline-block;
+	background: #5F8659;
+}
+#gainer > div > p {
+	margin-left: 2%;
+	color: whitesmoke;
 }
 
 
 .toploser_logo {
 	margin-left: 3%;
 }
-.loser div {
+#loser {
+	margin-left: 2%;
+	margin-bottom: 3%;
+}
+#loser div {
 	margin-left: 1%;
     position: relative;
-	width: 152px;
-    height: 150px;
-    background: #5F8659;
-    backdrop-filter: blur(4px);
+	min-width: 152px;
+	width: 15%;
+    min-height: 152px;
+	height: 15%;
     border-radius: 12px;
 	display: inline-block;
+	background: #5F8659;
+}
+#loser > div > p {
+	margin-left: 2%;
+	color: whitesmoke;
+}
+#loser > div > img {
+	width: 50%;
+	height: 50%;
 }
