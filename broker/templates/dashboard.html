@@ -164,7 +164,7 @@
 				price.innerHTML = '₹'+topLosers[i]['ltp'];
 
 				var change = document.createElement('p');
-				change.innerHTML = parseFloat(topLosers[i]['ltp']-topLosers[i]['previousPrice']).toFixed(2)+' ('+topLosers[i]['netPrice']+'%)';
+				change.innerHTML = '<font color="#d55438">'+parseFloat(topLosers[i]['ltp']-topLosers[i]['previousPrice']).toFixed(2)+' ('+topLosers[i]['netPrice']+'%)'+'</font>';
 
 				div.appendChild(p);
 				//div.appendChild(logo);
@@ -200,7 +200,7 @@
 				price.innerHTML = '₹'+topGainers[i]['ltp'];
 				
 				var change = document.createElement('p');
-				change.innerHTML = parseFloat(topGainers[i]['ltp']-topGainers[i]['previousPrice']).toFixed(2)+' (+'+topGainers[i]['netPrice']+'%)';
+				change.innerHTML = '<font color="#0abb92">'+parseFloat(topGainers[i]['ltp']-topGainers[i]['previousPrice']).toFixed(2)+' (+'+topGainers[i]['netPrice']+'%)'+'</font>';
 
 				div.appendChild(name);
 				//div.appendChild(logo);
@@ -217,17 +217,17 @@
 			niftyBank_price = document.getElementById('niftyBank_price');
             
 			if(niftyChange >=0){
-				nifty_price.innerHTML = '<font color="">'+niftyPrice+'</font>'+'  +'+niftyChange+'  +'+niftyPChange+'%';
+				nifty_price.innerHTML = '<font color="">'+niftyPrice+'</font>'+'<font color="#0abb92">'+'  +'+niftyChange+'  +'+niftyPChange+'%'+'</font>';
 			}
 			else{
-				nifty_price.innerHTML = niftyPrice+'  -'+niftyChange+'  -'+niftyPChange+'%';
+				nifty_price.innerHTML = niftyPrice+'</font>'+'<font color="#d55438">'+'  -'+niftyChange+'  -'+niftyPChange+'%'+'</font>';
 			}
 
 			if(niftyBankChange >=0){
-				niftyBank_price.innerHTML = niftyBankPrice+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%';
+				niftyBank_price.innerHTML = niftyBankPrice+'<font color="#0abb92">'+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%'+'</font>';
 			}
 			else{
-				niftyBank_price.innerHTML = niftyBankPrice+'  -'+niftyBankChange+'  -'+niftyBankPChange+'%';
+				niftyBank_price.innerHTML = niftyBankPrice+'<font color="#d55438">'+'  -'+niftyBankChange+'  -'+niftyBankPChange+'%'+'</font>';
 			}
 			
 		}

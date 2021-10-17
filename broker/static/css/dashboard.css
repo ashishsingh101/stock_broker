@@ -4,7 +4,7 @@
 /* Only edit this if you know what you are doing! */
 
 html {
-	background:#111010 ;
+	background:#121212 ;
 }
 
 body { padding: 0px;
@@ -125,11 +125,14 @@ scrollbar-width: none;
 	max-width: 273px;
 	height: 74px;
 	display: inline-block;
-	border-style: solid;
-	background: #6c1dcf;
+	box-shadow: 0px 0px 2px 2px #000000;
+	background: #1d1d1d;
 }
 .nifty {
 	min-width:270px;
+}
+.nifty:hover {
+	box-shadow: 0px 0px 1px 1px #292929;
 }
 .nifty_text {
 	margin-left: 5%;
@@ -141,6 +144,9 @@ scrollbar-width: none;
 }
 .niftyBank {
 	min-width: 270px;
+}
+.niftyBank:hover {
+	box-shadow: 0px 0px 1px 1px #292929;
 }
 .niftyBank_text {
 	margin-left: 5%;
@@ -167,7 +173,11 @@ scrollbar-width: none;
 	height: 15%;
     border-radius: 12px;
 	display: inline-block;
-	background: #5F8659;
+	box-shadow: 0px 0px 2px 2px #000000;
+	background: #1d1d1d;
+}
+.gainer_div:hover {
+	box-shadow: 0px 0px 1px 1px #292929;
 }
 #gainer > div > p, #gainer > div > pre {
 	margin-left: 2%;
@@ -198,7 +208,11 @@ scrollbar-width: none;
 	height: 15%;
     border-radius: 12px;
 	display: inline-block;
-	background: #5F8659;
+	box-shadow: 0px 0px 2px 2px #000000;
+	background: #1d1d1d;
+}
+.loser_div:hover {
+	box-shadow: 0px 0px 1px 1px #292929;
 }
 #loser > div > p, #loser > div > pre {
 	margin-left: 2%;
@@ -213,16 +227,15 @@ scrollbar-width: none;
 	margin-left: 2%;
 	height: 30px;
 	width: fit-content;
-	background: rgb(200, 199, 199);
+	background: #000000;
 	position: relative;
 	border-radius: 5px;
-	border: solid 1px;
-	border-color: white;
+	box-shadow: 0px 0px 2px 2px #000000;
 
 }
 .equity_logo {
-	max-height: 90%;
-	max-width: 90%;
+	max-height: 100%;
+	max-width: 100%;
 	vertical-align: middle;
 }
 pre{
