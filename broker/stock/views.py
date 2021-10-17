@@ -21,6 +21,10 @@ def dashboard(request):
 
         context['topGainers'] = nse.get_top_gainers()[:5]
         context['topLosers'] = nse.get_top_losers()[:5]
+        
+        d=context['topGainers'][0]
+        for ele in d:
+            print(ele+' : '+str(d[ele]))
 
         logos = {}
         for ele in context['topGainers']:
@@ -28,7 +32,6 @@ def dashboard(request):
         for ele in context['topLosers']:
             logos[ele['symbol']] = nse.get_quote(ele['symbol'])['isinCode']
         context['logos'] = logos
-        print(logos)
         """
         d=nse.get_quote('ZOMATO')
         for ele in d:

@@ -148,15 +148,30 @@
 
 				var div  = document.createElement('div');
 				var symbol = topLosers[i]['symbol'];
-				div.className = topLosers[i]['symbol'];
+				div.id = topLosers[i]['symbol'];
+				div.className = 'loser_div';
 				var p = document.createElement('p');
 				p.innerText = topLosers[i]['symbol'];
 
+				var imgdiv = document.createElement('div');
+				imgdiv.className = 'img_div';
+
 				var logo = document.createElement('img');
+				logo.className = 'equity_logo';
 				logo.src = 'https://assets-netstorage.groww.in/stock-assets/logos/'+logos[topLosers[i]['symbol']]+'.png';
 
+				var price = document.createElement('p');
+				price.innerHTML = '₹'+topLosers[i]['ltp'];
+
+				var change = document.createElement('p');
+				change.innerHTML = parseFloat(topLosers[i]['ltp']-topLosers[i]['previousPrice']).toFixed(2)+' ('+topLosers[i]['netPrice']+'%)';
+
 				div.appendChild(p);
-				div.appendChild(logo);
+				//div.appendChild(logo);
+				imgdiv.appendChild(logo);
+				div.appendChild(imgdiv);
+				div.appendChild(price);
+				div.appendChild(change);
 				loser.appendChild(div);
 			}
 		}
@@ -169,10 +184,30 @@
 				console.log(topGainers[i]);
 
 				var div  = document.createElement('div');
-				div.className = topGainers[i]['symbol'];
-				var p = document.createElement('p');
-				p.innerText = topGainers[i]['symbol'];
-				div.appendChild(p);
+				div.id = topGainers[i]['symbol'];
+				div.className = 'gainer_div';
+				var name = document.createElement('p');
+				name.innerText = topGainers[i]['symbol'];
+
+				var imgdiv = document.createElement('div');
+				imgdiv.className = 'img_div';
+
+				var logo = document.createElement('img');
+				logo.className = 'equity_logo';
+				logo.src = 'https://assets-netstorage.groww.in/stock-assets/logos/'+logos[topGainers[i]['symbol']]+'.png';
+
+                var price = document.createElement('p');
+				price.innerHTML = '₹'+topGainers[i]['ltp'];
+				
+				var change = document.createElement('p');
+				change.innerHTML = parseFloat(topGainers[i]['ltp']-topGainers[i]['previousPrice']).toFixed(2)+' (+'+topGainers[i]['netPrice']+'%)';
+
+				div.appendChild(name);
+				//div.appendChild(logo);
+				imgdiv.appendChild(logo);
+				div.appendChild(imgdiv);
+				div.appendChild(price);
+				div.appendChild(change);
 				gainer.appendChild(div);
 			}
 		}
