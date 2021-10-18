@@ -1,3 +1,7 @@
 # stock_broker
 
-ongoing, will be publised soon.
+ongoing...
+
+# Dashboard UI
+
+![screenshot](dashboard_ui.png)
