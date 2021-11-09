@@ -4,7 +4,7 @@
 /* Only edit this if you know what you are doing! */
 
 html {
-	background:#121212 ;
+	background:#000000 ;
 }
 
 body { padding: 0px;
@@ -133,6 +133,7 @@ scrollbar-width: none;
 }
 .nifty:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
+	cursor: pointer;
 }
 .nifty_text {
 	margin-left: 5%;
@@ -147,6 +148,7 @@ scrollbar-width: none;
 }
 .niftyBank:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
+	cursor: pointer;
 }
 .niftyBank_text {
 	margin-left: 5%;
@@ -178,6 +180,7 @@ scrollbar-width: none;
 }
 .gainer_div:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
+	cursor: pointer;
 }
 #gainer > div > p, #gainer > div > pre {
 	margin-left: 2%;
@@ -213,6 +216,7 @@ scrollbar-width: none;
 }
 .loser_div:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
+	cursor: pointer;
 }
 #loser > div > p, #loser > div > pre {
 	margin-left: 2%;
