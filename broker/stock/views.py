@@ -1,4 +1,4 @@
-from django.http.response import JsonResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.conf import settings
 from nsetools import Nse
@@ -23,9 +23,10 @@ def dashboard(request):
         context['topLosers'] = nse.get_top_losers()[:5]
         
         d=context['topGainers'][0]
+        """
         for ele in d:
             print(ele+' : '+str(d[ele]))
-
+        """
         logos = {}
         for ele in context['topGainers']:
             logos[ele['symbol']] = nse.get_quote(ele['symbol'])['isinCode']
@@ -40,3 +41,10 @@ def dashboard(request):
         return JsonResponse(context)
 
     return render(request, 'dashboard.html', {})
+
+def detail(request):
+
+    if request.method == 'GET':
+        print(request.GET['stock_name'])
+
+    return render(request, 'detail.html', {})

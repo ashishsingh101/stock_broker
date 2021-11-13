@@ -26,6 +26,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<!-- Add your custom HEAD content here -->
 
+		<!--favicon-->
+		<link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}"/>
+
 	</head>
 	<body>
 		<div id="content-container" >
@@ -62,41 +65,13 @@
 				<!--top gainer logo-->
 				<img class='topgainer_logo' src="{% static 'media/image/topgainer.png' %}" />
 				<div id='gainer' >
-					<div >
-
-					</div>
-					<div>
-
-					</div>
-					<div>
-
-					</div>
-					<div>
-
-					</div>
-					<div>
-
-					</div>
+					
 				</div>
 
 				<!--top loser logo-->
 				<img class='toploser_logo' src="{% static 'media/image/toploser.png' %}" />
 				<div id='loser' >
-					<div >
-
-					</div>
-					<div>
-
-					</div>
-					<div>
-
-					</div>
-					<div>
-
-					</div>
-					<div>
-						
-					</div>
+					
 				</div>
 
 			</div>
@@ -106,7 +81,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div>	
 
 	</body>
 
@@ -115,7 +90,9 @@
 window.onload = refresh_function();
 
 function refresh_function() {
-	fetchdata()
+	startLoader();
+	fetchdata();
+	stopLoader();
 }
 
 function fetchdata() {
@@ -140,6 +117,36 @@ function fetchdata() {
 	});
 }
 
+function startLoader() {
+	$('.loader').show();
+}
+function stopLoader() {
+	$('.loader').hide();
+}
+
+function detail() {
+	//"{% url 'detail' %}"
+	stock_name = this.id;
+	method = "get"; // Set method to post by default, if not specified.
+	path = "{% url 'detail' %}";
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    var hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "stock_name");
+    hiddenField.setAttribute("value", stock_name);
+
+    form.appendChild(hiddenField);
+    document.body.appendChild(form);
+
+    form.submit();
+}
+
 function update_losers(topLosers, logos) {
 	loser = document.getElementById('loser');
 	loser.innerHTML = ''
@@ -148,6 +155,9 @@ function update_losers(topLosers, logos) {
 		console.log(topLosers[i]);
 
 		var div  = document.createElement('div');
+		//onclick event
+		div.onclick = detail;
+		
 		var symbol = topLosers[i]['symbol'];
 		div.id = topLosers[i]['symbol'];
 		div.className = 'loser_div';
