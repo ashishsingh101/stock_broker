@@ -195,6 +195,9 @@ function update_gainers(topGainers, logos) {
 		console.log(topGainers[i]);
 
 		var div  = document.createElement('div');
+		//onclick event
+		div.onclick = detail;
+		
 		div.id = topGainers[i]['symbol'];
 		div.className = 'gainer_div';
 		var name = document.createElement('p');
