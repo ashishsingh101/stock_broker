@@ -4,4 +4,5 @@ ongoing...
 
 # Dashboard UI
 
-![screenshot](dashboard_ui.png)
+![dashboard](dashboard_ui.png)
+![detail](candlestick chart.png)
