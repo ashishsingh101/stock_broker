@@ -50,34 +50,38 @@ def detail(request, stock_name):
 
     if request.method == 'POST' and request.POST['action']=='chart_data':
         print('pass')
+        nse = Nse()
         today = date.today()
+        one_month_ago = today.replace(year=today.year-1)
+        """
         if today.month == 1:
             one_month_ago = today.replace(year=today.year-1, month=12)
         elif today.day > 28:
             one_month_ago = today.replace(month=today.month-1, day=28)
         else:
             one_month_ago = today.replace(month=today.month-1)
-        
+        """
         one_month_data = nsepy.get_history(symbol=stock_name, start=one_month_ago, end=today)
         one_month_data = one_month_data[['Open','High', 'Low', 'Close']]
         df = pd.DataFrame(one_month_data)
         #print(df.index)
         dates = df.index.tolist()
-        print(dates)
         open = df['Open'].values.tolist()
-        print(open)
         high = df['High'].values.tolist()
         low = df['Low'].values.tolist()
         close = df['Close'].values.tolist()
         #print(nsepy.get_history(symbol=stock_name, start=date(2015,1,1), end=date(2015,1,31)))
-        #one_month_data = [] # date, open, high, low, close
+        one_month_data = [] # date, open, high, low, close
+        for i in range(len(dates)):
+            one_month_data.append([int(dates[i].strftime('%s')), [open[i], high[i], low[i], close[i]]])
         """
         for data in nsepy.get_history(symbol=stock_name, start=one_month_ago, end=today):
             one_month_data.append(['', data.open, data.high, data.low, data.close])
         """
 
         context = {
-            'one_month_data' : df.to_json(),
+            'one_month_data' : one_month_data,
+            'stock' : nse.get_quote(stock_name),
         }
         return JsonResponse(context)
 

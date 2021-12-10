@@ -83,6 +83,10 @@
 			</div>
 		</div>	
 
+		<div id="loading">
+			<img id="loading-image" src="path/to/ajax-loader.gif" alt="Loading..." />
+		</div>
+
 	</body>
 
 	<script>
@@ -90,9 +94,7 @@
 window.onload = refresh_function();
 
 function refresh_function() {
-	startLoader();
 	fetchdata();
-	stopLoader();
 }
 
 function fetchdata() {
@@ -118,10 +120,10 @@ function fetchdata() {
 }
 
 function startLoader() {
-	$('.loader').show();
+	pass
 }
 function stopLoader() {
-	$('.loader').hide();
+	pass
 }
 
 function redirect(){
@@ -222,7 +224,7 @@ function update_index(niftyPrice, niftyBankPrice, niftyChange, niftyPChange, nif
 	if(niftyBankChange >=0){
 		niftyBank_price.innerHTML = niftyBankPrice+'<font color="#0abb92">'+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%'+'</font>';
 	}
-	else{
+	else{$('#loading').hide();
 		niftyBank_price.innerHTML = niftyBankPrice+'<font color="#d55438">'+'  '+niftyBankChange+'  '+niftyBankPChange+'%'+'</font>';
 	}
 	
