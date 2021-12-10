@@ -124,27 +124,9 @@ function stopLoader() {
 	$('.loader').hide();
 }
 
-function detail() {
-	//"{% url 'detail' %}"
-	stock_name = this.id;
-	method = "get"; // Set method to post by default, if not specified.
-	path = "{% url 'detail' %}";
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-
-    var hiddenField = document.createElement("input");
-    hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "stock_name");
-    hiddenField.setAttribute("value", stock_name);
-
-    form.appendChild(hiddenField);
-    document.body.appendChild(form);
-
-    form.submit();
+function redirect(){
+	id = String(this.id);
+	location.href = "{% url 'detail' 1 %}".replace(/1/, id);
 }
 
 function update_losers(topLosers, logos) {
@@ -156,7 +138,7 @@ function update_losers(topLosers, logos) {
 
 		var div  = document.createElement('div');
 		//onclick event
-		div.onclick = detail;
+		div.onclick = redirect;
 		
 		var symbol = topLosers[i]['symbol'];
 		div.id = topLosers[i]['symbol'];
@@ -196,7 +178,7 @@ function update_gainers(topGainers, logos) {
 
 		var div  = document.createElement('div');
 		//onclick event
-		div.onclick = detail;
+		div.onclick = redirect;
 		
 		div.id = topGainers[i]['symbol'];
 		div.className = 'gainer_div';

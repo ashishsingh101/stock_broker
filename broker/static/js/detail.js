@@ -1,17 +1,49 @@
-window.onload = makechart();
+//var csrftoken = document.cookie.get('csrftoken')
+window.onload = getData();
 
-function getData(){
-	
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
-function makechart() {
+function getData(){
+
+	$.ajax({
+		url : "",
+		type : "POST",
+		headers: { "X-CSRFToken": getCookie('csrftoken') },
+		data : {
+			'action' : 'chart_data',
+
+		},
+	
+		// If sucess, download file
+		success: function(response) {
+			  console.log(response['one_month_data']);
+			  makechart(response['one_month_data'])
+		},
+	});
+}
+
+function makechart(data) {
 	var options = {
 		series: [{
 
 		//anoter data format [
 		//	[1538856000000, 6593.34, 6600, 6582.63, 6600], 
 		//	[1538856900000, 6595.16, 6604.76, 6590.73, 6593.86]
-		//  ]
+		//  ] date, open, high, low, close
 
 		data: [{
 			x: new Date(1538778600000),
