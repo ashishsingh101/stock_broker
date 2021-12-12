@@ -29,7 +29,20 @@
 	@name gain_web_app
 */
 /* Only edit this if you know what you are doing! */
-body {font-family:"Arial"; margin: 0px; padding: 0px; overflow-x:scroll; }
+html {
+	background:#000000 ;
+}
+
+body { padding: 0px;
+	height: 100vh;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	-ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+.body::-webkit-scrollbar {
+	display: none;
+}
 
 /* Only edit this if you know what you are doing! */
 img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
@@ -42,10 +55,12 @@ div { position: absolute; }
 #content-container > div{ position: relative; top:inherit; }
 #page_loginpage_ek1 {
 	position: relative;
-	top: 0px;
-	left: 0px;
-	width: 1440px;
+	width: 100%;
 	height: 1024px;
+	display: flex;
+    justify-content: center;
+	align-content: center;
+	align-items: center;
 }
 
 #_bg__loginpage_ek2 {
@@ -63,21 +78,12 @@ div { position: absolute; }
 
 
 #rectangle_1 {
-	top: 268px;
-	left: 331px;
 	width: 777px;
 	height: 467px;
-	-ms-border-radius: 25px;
-	-o-border-radius: 25px;
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	border-radius: 25px;
-	background:rgba(255,255,255,0);
-	background: -webkit-linear-gradient(-90deg , rgba(3.19,3.17,3.17,1) 0%, rgba(5.92,5.76,5.76,0.85) 25%, rgba(9.86,9.49,9.49,0.63) 58%, rgba(12.7,12.18,12.18,0.47) 87%, rgba(14.41,13.8,13.8,0.38) 100%, rgba(21.25,20.28,20.28,0) 100%);
-	background: -o-linear-gradient(-90deg , rgba(3.19,3.17,3.17,1) 0%, rgba(5.92,5.76,5.76,0.85) 25%, rgba(9.86,9.49,9.49,0.63) 58%, rgba(12.7,12.18,12.18,0.47) 87%, rgba(14.41,13.8,13.8,0.38) 100%, rgba(21.25,20.28,20.28,0) 100%);
-	background: -moz-linear-gradient(-90deg , rgba(3.19,3.17,3.17,1) 0%, rgba(5.92,5.76,5.76,0.85) 25%, rgba(9.86,9.49,9.49,0.63) 58%, rgba(12.7,12.18,12.18,0.47) 87%, rgba(14.41,13.8,13.8,0.38) 100%, rgba(21.25,20.28,20.28,0) 100%);
-	background: -ms-linear-gradient(-90deg , rgba(3.19,3.17,3.17,1) 0%, rgba(5.92,5.76,5.76,0.85) 25%, rgba(9.86,9.49,9.49,0.63) 58%, rgba(12.7,12.18,12.18,0.47) 87%, rgba(14.41,13.8,13.8,0.38) 100%, rgba(21.25,20.28,20.28,0) 100%);
-	background: linear-gradient(180deg , rgba(3.19,3.17,3.17,1) 0%, rgba(5.92,5.76,5.76,0.85) 25%, rgba(9.86,9.49,9.49,0.63) 58%, rgba(12.7,12.18,12.18,0.47) 87%, rgba(14.41,13.8,13.8,0.38) 100%, rgba(21.25,20.28,20.28,0) 100%);
+	background: rgba(61, 60, 60, 0.57);
+    border-radius: 15px;
+    -ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 
@@ -100,6 +106,8 @@ div { position: absolute; }
 	height: 49px;
 }
 #username_written {
+	font-size: 40px;
+	font-family: Great Vibes;
 	top: 0px;
 	left: 0px;
 	width: 588px;
@@ -112,8 +120,6 @@ div { position: absolute; }
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
 	background:rgba(196,196,196,1);
-	font-size: 40px;
-	font-family: Great Vibes;
 }
 
 #slice_1 {
@@ -157,26 +163,26 @@ div { position: absolute; }
 
 
 #username {
+	font-family: Great Vibes;
+	font-size: 40px;
 	top: 375px;
 	left: 440px;
 	width: 128px;
 	height: 78px;
 	overflow: hidden;
-	font-family: Great Vibes;
-	font-size: 40px;
 	text-align: left;
 	color:#FFFFFF;
 }
 
 
 #password {
+	font-family: Great Vibes;
+	font-size: 40px;
 	top: 489px;
 	left: 437px;
 	width: 131px;
 	height: 78px;
 	overflow: hidden;
-	font-family: Great Vibes;
-	font-size: 40px;
 	text-align: left;
 	color:#FFFFFF;
 }
@@ -245,7 +251,6 @@ div { position: absolute; }
      <body>
          <div id="content-container" >
              <div id="page_loginpage_ek1"  >
-                 <div id="_bg__loginpage_ek2"  ></div>
                  <div id="rectangle_1"  ></div>
                  <div id="gain" >
                      gain
