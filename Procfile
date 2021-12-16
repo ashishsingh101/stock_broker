@@ -1,1 +1,1 @@
-web: gunicorn broker:app
+web: gunicorn broker.wsgi
