@@ -1,6 +1,7 @@
 # stock_broker
 
 ongoing...
+run 'pipreqs' to create requirements.txt
 
 # Dashboard UI
 ![dashboard](dashboard_ui.png)
