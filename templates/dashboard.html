@@ -17,12 +17,8 @@
 <html>
 	<head>
 		{% load static %}
-		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
 		<title>Dashboard</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="" >
 		<link rel="stylesheet" href="{% static 'css/dashboard.css' %}" >
-		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=4"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<!-- Add your custom HEAD content here -->
 
@@ -132,7 +128,7 @@ function update_losers(topLosers, logos) {
 	loser.innerHTML = ''
 
 	for(let i=0;i<topLosers.length;i++) {
-		console.log(topLosers[i]);
+		//console.log(topLosers[i]);
 
 		var div  = document.createElement('div');
 		//onclick event
@@ -172,7 +168,7 @@ function update_gainers(topGainers, logos) {
 	gainer.innerHTML=''
 
 	for(let i=0;i<topGainers.length;i++) {
-		console.log(topGainers[i]);
+		//console.log(topGainers[i]);
 
 		var div  = document.createElement('div');
 		//onclick event

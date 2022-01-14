@@ -1,5 +1,6 @@
 //var csrftoken = document.cookie.get('csrftoken')
 window.onload = getData();
+window.stock_data = '';
 
 function getCookie(name) {
     let cookieValue = null;
@@ -30,14 +31,15 @@ function getData(){
 	
 		// If sucess, download file
 		success: function(response) {
-			  console.log(response['one_month_data']);
+			  //console.log(response['one_month_data']);
 			  makechart(response['one_month_data'], response['stock']);
+			  window.stock_data = response['stock'];
 		},
 	});
 }
 
 function makechart(data, stock) {
-	console.log(data);
+	//console.log(data);
 	var options = {
 		series: [{
 
@@ -92,4 +94,20 @@ function makechart(data, stock) {
 	  chart.render();
 	
 	
+}
+
+function buy_shares(){
+	var buy_button = document.getElementById('buy');
+	var sell_button = document.getElementById('sell');
+	buy_button.style.backgroundColor = '#0abb92';
+	sell_button.style.backgroundColor = 'rgba(40,43,49,1)';
+	console.log(window.stock_data);
+
+}
+
+function sell_shares(){
+	var sell_button = document.getElementById('sell');
+	var buy_button = document.getElementById('buy');
+	sell_button.style.backgroundColor = '#0abb92';
+	buy_button.style.backgroundColor = 'rgba(40,43,49,1)';
 }

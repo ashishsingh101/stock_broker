@@ -8,10 +8,17 @@
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}"/>
 </head>
 <body>
 
   <div id="chart"></div>
+
+  <div id='buy_sell'>
+    <div id='buy' onClick="buy_shares()">Buy</div>
+    <div id='sell' onClick="sell_shares()">Sell</div>    
+  </div>
+  <div id='buy_sell_form'></div>
 
 </body>
 <script>
@@ -20,3 +27,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script type='text/javascript' src="{% static 'js/detail.js' %}"></script>
 </html>
+  
