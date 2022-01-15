@@ -87,6 +87,9 @@
 window.onload = refresh_function();
 
 function refresh_function() {
+	$("#loading").show();
+	document.getElementById("content-container").style.visibility = "hidden";
+	document.getElementsByClassName('row')[0].style.visibility = "hidden";
 	fetchdata();
 }
 
@@ -102,9 +105,7 @@ function fetchdata() {
 
 		beforeSend: function(){
     		// Show image container
-    		$("#loader").show();
-			document.getElementById("content-container").style.visibility = "hidden";
-			document.getElementsByClassName('row')[0].style.visibility = "hidden";
+    		
    		},
 
 		success : function(response){
@@ -119,7 +120,7 @@ function fetchdata() {
 
 		complete:function(data){
     		// Hide image container
-    		$("#loader").hide();
+    		$("#loading").hide();
 			document.getElementById("content-container").style.visibility = "visible";
 			document.getElementsByClassName('row')[0].style.visibility = "visible";
    		},
@@ -225,7 +226,7 @@ function update_index(niftyPrice, niftyBankPrice, niftyChange, niftyPChange, nif
 	if(niftyBankChange >=0){
 		niftyBank_price.innerHTML = niftyBankPrice+'<font color="#0abb92">'+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%'+'</font>';
 	}
-	else{$('#loading').hide();
+	else{
 		niftyBank_price.innerHTML = niftyBankPrice+'<font color="#d55438">'+'  '+niftyBankChange+'  '+niftyBankPChange+'%'+'</font>';
 	}
 	

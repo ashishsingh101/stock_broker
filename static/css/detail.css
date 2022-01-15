@@ -32,7 +32,6 @@ body { padding: 0px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
-	box-shadow: 0px 0px 0.5px 0.5px #0abb92;
 	display: flex;
     flex-direction: row;
 	align-items: center;
@@ -49,7 +48,7 @@ body { padding: 0px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-	background:#0abb92;
+	background:rgb(23, 24, 26);
 	align-items: flex-start;
 	font-size: 30px;
 	font-weight: bold;
@@ -59,6 +58,7 @@ body { padding: 0px;
 }
 #buy:hover {
 	cursor: pointer;
+	box-shadow: 0px 0px 0.5px 0.5px #0abb92;
 }
 #sell {
 	margin-left: 0.5%;
@@ -70,7 +70,7 @@ body { padding: 0px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-	background:rgba(40,43,49,1);
+	background:rgb(23, 24, 26);
 	align-items: flex-end;
 	font-size: 30px;
 	font-weight: bold;
@@ -80,22 +80,59 @@ body { padding: 0px;
 }
 #sell:hover {
 	cursor: pointer;
+	box-shadow: 0px 0px 0.5px 0.5px #0abb92;
 }
 
 #buy_sell_form {
+	position: relative;
 	width: 80%;
 	max-width: 800px;
 	margin: 35px auto;
 	height: 200px;
-	-ms-border-radius: 8px;
-	-o-border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
+	background: linear-gradient(180deg, #030303 0%, rgba(6, 6, 6, 0.848958) 25%, rgba(10, 9, 9, 0.630823) 58.33%, rgba(13, 12, 12, 0.473117) 86.98%, rgba(14, 14, 14, 0.378494) 99.99%, rgba(21, 20, 20, 0) 100%);
+	filter: blur(4px);
 	border-radius: 8px;
-	box-shadow: 0px 0px 0.5px 0.5px #0abb92;
-	display: flex;
-    flex-direction: row;
-	align-items: center;
-	padding: 0px;
-	position: relative;
+	background:rgb(23, 24, 26);
 }
+
+.type_delivery {
+	top: 690px;
+	left: 1493px;
+	overflow: hidden;
+	font-family: Great Vibes;
+	font-size: 20px;
+	text-align: left;
+	margin-top: 2%;
+	margin-left: 2%;
+	color:#FFFFFF;
+}
+
+.share {
+	display: flex;
+	flex-direction: row;
+	width: 100vh;
+}
+.share_text {
+position: relative;
+width: 82px;
+height: 60px;
+text-align: left;
+font-family: Great Vibes;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 60px;
+/* identical to box height */
+font-feature-settings: 'liga' off;
+color: #FFFFFF;
+margin-left: 2%;
+}
+.share_value {
+	position: relative;
+	width: 169px;
+	height: 35px;
+	background: #C4C4C4;
+	justify-content: flex-end;
+	margin-right: 2%;
+}
+

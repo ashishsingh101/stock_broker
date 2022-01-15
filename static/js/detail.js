@@ -100,14 +100,59 @@ function buy_shares(){
 	var buy_button = document.getElementById('buy');
 	var sell_button = document.getElementById('sell');
 	buy_button.style.backgroundColor = '#0abb92';
-	sell_button.style.backgroundColor = 'rgba(40,43,49,1)';
+	sell_button.style.backgroundColor = 'rgb(23, 24, 26)';
 	console.log(window.stock_data);
 
+	/*
+	var buy_sell_form = document.getElementById('buy_sell_form');
+	// Create a form dynamically
+	buy_sell_form.innerHTML = '';
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "submit");
+ 
+    // Create an input element number of share
+    var shares = document.createElement("input");
+    shares.setAttribute("type", 'number');
+    shares.setAttribute("name", "shares");
+    shares.setAttribute("placeholder", "shares");
+
+	var s = document.createElement("input");
+    s.setAttribute("type", "submit");
+    s.setAttribute("value", "Buy");
+
+	form.appendChild(shares);
+	form.appendChild(s);
+	buy_sell_form.appendChild(form);
+	*/
 }
 
 function sell_shares(){
 	var sell_button = document.getElementById('sell');
 	var buy_button = document.getElementById('buy');
 	sell_button.style.backgroundColor = '#0abb92';
-	buy_button.style.backgroundColor = 'rgba(40,43,49,1)';
+	buy_button.style.backgroundColor = 'rgb(23, 24, 26)';
+	
+	/*
+	var buy_sell_form = document.getElementById('buy_sell_form');
+	// Create a form dynamically
+	buy_sell_form.innerHTML = '';
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "submit");
+ 
+    // Create an input element number of share
+    var shares = document.createElement("input");
+    shares.setAttribute("type", 'number');
+    shares.setAttribute("name", "shares");
+    shares.setAttribute("placeholder", "shares");
+
+	var s = document.createElement("input");
+    s.setAttribute("type", "submit");
+    s.setAttribute("value", "Sell");
+
+	form.appendChild(shares);
+	form.appendChild(s);
+	buy_sell_form.appendChild(form);
+	*/
 }
