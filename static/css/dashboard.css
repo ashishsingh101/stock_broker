@@ -245,3 +245,16 @@ scrollbar-width: none;
 pre{
 	font-size: medium;
 }
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/static/media/loading.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40%;
+}

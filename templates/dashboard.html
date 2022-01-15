@@ -27,6 +27,7 @@
 
 	</head>
 	<body>
+		<div id="loading"></div>
 		<div id="content-container" >
 
 				<div id="_bg__mainpage_ek2"  ></div>
@@ -99,6 +100,13 @@ function fetchdata() {
 
 		},
 
+		beforeSend: function(){
+    		// Show image container
+    		$("#loader").show();
+			document.getElementById("content-container").style.visibility = "hidden";
+			document.getElementsByClassName('row')[0].style.visibility = "hidden";
+   		},
+
 		success : function(response){
 			update_index(response['niftyPrice'], response['niftyBankPrice'],
 						 response['niftyChange'], response['niftyPChange'],
@@ -108,14 +116,15 @@ function fetchdata() {
 			update_losers(response['topLosers'], response['logos'])
 			
 		},
-	});
-}
 
-function startLoader() {
-	pass
-}
-function stopLoader() {
-	pass
+		complete:function(data){
+    		// Hide image container
+    		$("#loader").hide();
+			document.getElementById("content-container").style.visibility = "visible";
+			document.getElementsByClassName('row')[0].style.visibility = "visible";
+   		},
+
+	});
 }
 
 function redirect(){
