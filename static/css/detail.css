@@ -90,49 +90,62 @@ body { padding: 0px;
 	margin: 35px auto;
 	height: 200px;
 	background: linear-gradient(180deg, #030303 0%, rgba(6, 6, 6, 0.848958) 25%, rgba(10, 9, 9, 0.630823) 58.33%, rgba(13, 12, 12, 0.473117) 86.98%, rgba(14, 14, 14, 0.378494) 99.99%, rgba(21, 20, 20, 0) 100%);
-	filter: blur(4px);
 	border-radius: 8px;
 	background:rgb(23, 24, 26);
 }
 
 .type_delivery {
-	top: 690px;
-	left: 1493px;
-	overflow: hidden;
+	top: 0;
+	left: 0;
+	position: absolute;
 	font-family: Great Vibes;
-	font-size: 20px;
-	text-align: left;
-	margin-top: 2%;
-	margin-left: 2%;
-	color:#FFFFFF;
-}
-
-.share {
-	display: flex;
-	flex-direction: row;
-	width: 100vh;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: #FFFFFF;
+	padding-top: 0;
+	padding-left: 3%;
 }
 .share_text {
-position: relative;
-width: 82px;
-height: 60px;
-text-align: left;
-font-family: Great Vibes;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 60px;
-/* identical to box height */
-font-feature-settings: 'liga' off;
-color: #FFFFFF;
-margin-left: 2%;
+	position: absolute;
+	font-family: Great Vibes;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: #FFFFFF;
+	padding-top: 5%;
+	padding-left: 3%;
 }
 .share_value {
-	position: relative;
-	width: 169px;
-	height: 35px;
-	background: #C4C4C4;
-	justify-content: flex-end;
-	margin-right: 2%;
+	position: absolute;
+	padding-top: 8.5%;
+	padding-left: 75%;
+}
+.share_input {
+	width: 150px;
+	height: 25px;
+	font-size: larger;
+	background-color: #66e3c4;
+	outline: 0;
+	border: none;
+	font-weight: 500;
+	color: black;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+.price_text {
+	position: absolute;
+	font-family: Great Vibes;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: #FFFFFF;
+	padding-top: 10%;
+	padding-left: 3%;
+}
+.price_value {
+	position: absolute;
+	padding-top: 13.5%;
+	padding-left: 75%;
 }
 
