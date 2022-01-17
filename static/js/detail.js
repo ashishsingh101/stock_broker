@@ -34,6 +34,7 @@ function getData(){
 			  //console.log(response['one_month_data']);
 			  makechart(response['one_month_data'], response['stock']);
 			  window.stock_data = response['stock'];
+			  buy_shares();
 		},
 	});
 }
@@ -103,6 +104,9 @@ function buy_shares(){
 	sell_button.style.backgroundColor = 'rgb(23, 24, 26)';
 	console.log(window.stock_data);
 
+	var submit = document.getElementsByClassName('submit')[0]
+	submit.innerHTML = 'Buy'
+
 	/*
 	var buy_sell_form = document.getElementById('buy_sell_form');
 	// Create a form dynamically
@@ -132,6 +136,9 @@ function sell_shares(){
 	var buy_button = document.getElementById('buy');
 	sell_button.style.backgroundColor = '#0abb92';
 	buy_button.style.backgroundColor = 'rgb(23, 24, 26)';
+
+	var submit = document.getElementsByClassName('submit')[0]
+	submit.innerHTML = 'Sell'
 	
 	/*
 	var buy_sell_form = document.getElementById('buy_sell_form');

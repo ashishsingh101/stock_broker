@@ -145,7 +145,29 @@ body { padding: 0px;
 }
 .price_value {
 	position: absolute;
-	padding-top: 13.5%;
+	top: 52%;
 	padding-left: 75%;
 }
-
+.submit_button {
+	position: absolute;
+	left: 44%;
+    top: 72%;
+}
+.submit {
+position: absolute;
+background: #66A06C;
+width: 93.79px;
+height: 44.77px;
+font-family: Great Vibes;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 50px;
+color: #000000;
+border-radius: 50px;
+font-weight: bold;
+}
+.submit:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 0.5px 0.5px #0abb92;
+}

@@ -6,6 +6,7 @@ import nsepy
 from datetime import date
 import json
 import pandas as pd
+import time, datetime
 
 # Create your views here.
 def dashboard(request):
@@ -73,7 +74,7 @@ def detail(request, stock_name):
         #print(nsepy.get_history(symbol=stock_name, start=date(2015,1,1), end=date(2015,1,31)))
         one_month_data = [] # date, open, high, low, close
         for i in range(len(dates)):
-            one_month_data.append([int(dates[i].strftime('%s')), [open[i], high[i], low[i], close[i]]])
+            one_month_data.append([time.mktime(datetime.datetime.strptime(str(dates[i]), "%Y-%m-%d").timetuple()), [open[i], high[i], low[i], close[i]]])
         """
         for data in nsepy.get_history(symbol=stock_name, start=one_month_ago, end=today):
             one_month_data.append(['', data.open, data.high, data.low, data.close])
