@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import pymongo
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,12 +79,24 @@ WSGI_APPLICATION = 'broker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : '',
+        'NAME' : 'local',
+        'USER' : 'stockbroker',
+        'PASSWORD': 'Stockbroker101',
+        'HOST': 'localhost',                      
+        'PORT': '27017',
     }
 }
+
+'''
+client = pymongo.MongoClient("mongodb+srv://stockbroker:Stockbroker101@cluster0.fk5y5.mongodb.net/stock_broker?retryWrites=true&w=majority")
+DATABASES = client['stock_broker']
+'''
 
 
 # Password validation
