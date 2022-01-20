@@ -7,9 +7,21 @@ from datetime import date
 import json
 import pandas as pd
 import time, datetime
+from broker.settings import URL_ROOT
+from django.shortcuts import redirect
 
 # Create your views here.
+
+def my_redirect(url):
+    #print('hello', URL_ROOT)
+    return redirect(URL_ROOT + url)
+
+
 def dashboard(request):
+    user = request.user
+
+    if not user.is_authenticated:
+        return my_redirect('/login/')
 
     if request.method == "POST" and request.POST['action']=='dashboard_data':
         context = {}
@@ -48,6 +60,10 @@ def dashboard(request):
     return render(request, 'dashboard.html', {})
 
 def detail(request, stock_name):
+    user = request.user
+
+    if not user.is_authenticated:
+        return my_redirect('/login/')
 
     if request.method == 'POST' and request.POST['action']=='chart_data':
         print('pass')

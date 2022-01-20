@@ -104,8 +104,10 @@ function buy_shares(){
 	sell_button.style.backgroundColor = 'rgb(23, 24, 26)';
 	console.log(window.stock_data);
 
-	var submit = document.getElementsByClassName('submit')[0]
-	submit.innerHTML = 'Buy'
+	var submit = document.getElementsByClassName('submit')[0];
+	var price_input = document.getElementsByClassName('share_input')[1];
+	submit.innerHTML = 'Buy';
+	price_input.value = window.stock_data['lastPrice'];
 
 	/*
 	var buy_sell_form = document.getElementById('buy_sell_form');
@@ -138,7 +140,9 @@ function sell_shares(){
 	buy_button.style.backgroundColor = 'rgb(23, 24, 26)';
 
 	var submit = document.getElementsByClassName('submit')[0]
+	var price_input = document.getElementsByClassName('share_input')[1];
 	submit.innerHTML = 'Sell'
+	price_input.value = window.stock_data['lastPrice'];
 	
 	/*
 	var buy_sell_form = document.getElementById('buy_sell_form');
@@ -162,4 +166,39 @@ function sell_shares(){
 	form.appendChild(s);
 	buy_sell_form.appendChild(form);
 	*/
+}
+
+function buy_sell() {
+	var submit = document.getElementsByClassName('submit')[0];
+	var price_input = document.getElementsByClassName('share_input')[1];
+	var shares = document.getElementsByClassName('share_input')[0];
+	var stock = window.stock_data;
+	var action = submit.innerHTML;
+	var price = price_input.value;
+	var shares_value = shares.value;
+	var total_price = price * shares_value;
+	var data = {
+		'action' : action,
+		'stock' : stock['stockCode'],
+		'price' : price,
+		'shares' : shares_value,
+		'total_price' : total_price,
+	}
+	$.ajax({
+		url : "",
+		type : "POST",
+		headers: { "X-CSRFToken": getCookie('csrftoken') },
+		data : data,
+	
+		// If sucess, download file
+		success: function(response) {
+			  console.log(response);
+			  if(response['status'] == 'success'){
+			  	alert('Transaction successful');
+			  }
+			  else{
+			  	alert('Transaction failed');
+			  }
+		},
+	});
 }

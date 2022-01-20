@@ -387,28 +387,28 @@ div { position: absolute; }
 				</div>
 
 				<form method="POST">{% csrf_token %}
-					<div id="firstname_input"  >
-						<input type="text" id="firstname_written" name="firstname">
+					<div id="firstname_input" >
+						<input type="text" id="firstname_written" name="firstname" required>
 					</div>
 
 					<div id="secondname_input"  >
-						<input type="text" id="secondname_written" name="secondname">
+						<input type="text" id="secondname_written" name="lastname" required>
 					</div>
 
 					<div id="email_input_ek1"  >
-						<input type="email" id="email_written" name="email">
+						<input type="email" id="email_written" name="email" required>
 					</div>
 
 					<div id="username_input_ek1"  >
-						<input type="text" id="username_written" name="username">
+						<input type="text" id="username_written" name="username" required>
 					</div>
 
 					<div id="createpassword_input"  >
-						<input type="text" id="password_written" name="password">
+						<input type="text" id="password_written" name="password" required>
 					</div>
 
 					<div id="createaccount_button"  >
-						<button type="submit" id="createaccount">Create Account</button>
+						<button type="submit" id="createaccount" required>Create Account</button>
 					</div>
 				</form>
 
