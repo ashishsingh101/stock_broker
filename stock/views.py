@@ -26,6 +26,7 @@ def dashboard(request):
     if request.method == "POST" and request.POST['action']=='dashboard_data':
         context = {}
         nse = Nse()
+
         index_nifty = nse.get_index_quote("nifty 50")
         context['niftyPrice'] = index_nifty['lastPrice']
         context['niftyChange'] = index_nifty['change']
@@ -39,22 +40,15 @@ def dashboard(request):
         context['topGainers'] = nse.get_top_gainers()[:5]
         context['topLosers'] = nse.get_top_losers()[:5]
         
-        d=context['topGainers'][0]
-        """
-        for ele in d:
-            print(ele+' : '+str(d[ele]))
-        """
+        
+
         logos = {}
         for ele in context['topGainers']:
             logos[ele['symbol']] = nse.get_quote(ele['symbol'])['isinCode']
         for ele in context['topLosers']:
             logos[ele['symbol']] = nse.get_quote(ele['symbol'])['isinCode']
         context['logos'] = logos
-        """
-        d=nse.get_quote('ZOMATO')
-        for ele in d:
-            print(ele)
-        """ 
+
         return JsonResponse(context)
 
     return render(request, 'dashboard.html', {})
@@ -66,7 +60,7 @@ def detail(request, stock_name):
         return my_redirect('/login/')
 
     if request.method == 'POST' and request.POST['action']=='chart_data':
-        print('pass')
+        #print('pass')
         nse = Nse()
         today = date.today()
         one_month_ago = today.replace(year=today.year-1)
@@ -101,5 +95,9 @@ def detail(request, stock_name):
             'stock' : nse.get_quote(stock_name),
         }
         return JsonResponse(context)
+
+    if request.method == 'POST' and request.POST['action']=='Buy':
+        print(request.POST['action'])
+        return JsonResponse({'status':'success'})
 
     return render(request, 'detail.html', {})
