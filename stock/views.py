@@ -9,6 +9,7 @@ import pandas as pd
 import time, datetime
 from broker.settings import URL_ROOT
 from django.shortcuts import redirect
+from .models import BuyShare
 
 # Create your views here.
 
@@ -97,7 +98,15 @@ def detail(request, stock_name):
         return JsonResponse(context)
 
     if request.method == 'POST' and request.POST['action']=='Buy':
-        print(request.POST['action'])
-        return JsonResponse({'status':'success'})
+        print(request.POST)
+        
+        if request.POST['quantity'] == '' or int(request.POST['quantity']) <= 0:
+            return JsonResponse({'status': 'noshare'})
+
+        user = request.user
+        new_buy_data = BuyShare.objects.create(user=user, buy_price=request.POST['price'], share_symbol=request.POST['stock'], quantity=request.POST['quantity'])
+        new_buy_data.save()
+        status = 'success'
+        return JsonResponse({'status':status})
 
     return render(request, 'detail.html', {})

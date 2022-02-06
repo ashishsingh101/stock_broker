@@ -87,6 +87,7 @@ body { padding: 0px;
 	position: relative;
 	width: 80%;
 	max-width: 800px;
+	min-width: 600px;
 	margin: 35px auto;
 	height: 200px;
 	background: linear-gradient(180deg, #030303 0%, rgba(6, 6, 6, 0.848958) 25%, rgba(10, 9, 9, 0.630823) 58.33%, rgba(13, 12, 12, 0.473117) 86.98%, rgba(14, 14, 14, 0.378494) 99.99%, rgba(21, 20, 20, 0) 100%);

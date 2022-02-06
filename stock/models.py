@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import CustomUser
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -22,15 +23,21 @@ class BuySell(models.Model):
 '''
 
 class BuyShare(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     buy_price = models.FloatField()
     date_time = models.DateTimeField(auto_now_add=True)
     share_symbol = models.CharField(max_length=100)
     quantity = models.IntegerField()
+    
+    def __str__(self):
+        return self.user.username
 
 class SellShare(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     sell_price = models.FloatField()
     date_time = models.DateTimeField(auto_now_add=True)
     share_symbol = models.CharField(max_length=100)
     quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.user.username

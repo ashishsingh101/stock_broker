@@ -104,9 +104,9 @@ function buy_shares(){
 	sell_button.style.backgroundColor = 'rgb(23, 24, 26)';
 	console.log(window.stock_data);
 
-	var submit = document.getElementsByClassName('submit')[0];
+	var submit_button = document.getElementsByClassName('submit_button')[0];
 	var price_input = document.getElementsByClassName('share_input')[1];
-	submit.innerHTML = 'Buy';
+	submit_button.innerHTML = 'Buy';
 	price_input.value = window.stock_data['lastPrice'];
 
 	/*
@@ -139,9 +139,9 @@ function sell_shares(){
 	sell_button.style.backgroundColor = '#0abb92';
 	buy_button.style.backgroundColor = 'rgb(23, 24, 26)';
 
-	var submit = document.getElementsByClassName('submit')[0]
+	var submit_button = document.getElementsByClassName('submit_button')[0]
 	var price_input = document.getElementsByClassName('share_input')[1];
-	submit.innerHTML = 'Sell'
+	submit_button.innerHTML = 'Sell'
 	price_input.value = window.stock_data['lastPrice'];
 	
 	/*
@@ -169,20 +169,18 @@ function sell_shares(){
 }
 
 function buy_sell() {
-	var submit = document.getElementsByClassName('submit')[0];
+	var submit = document.getElementsByClassName('submit_button')[0];
 	var price_input = document.getElementsByClassName('share_input')[1];
 	var shares = document.getElementsByClassName('share_input')[0];
 	var stock = window.stock_data;
 	var action = submit.innerHTML;
 	var price = price_input.value;
-	var shares_value = shares.value;
-	var total_price = price * shares_value;
+	var quantity = shares.value;
 	var data = {
 		'action' : action,
-		'stock' : stock['stockCode'],
+		'stock' : stock['symbol'],
 		'price' : price,
-		'shares' : shares_value,
-		'total_price' : total_price,
+		'quantity' : quantity,
 	}
 	$.ajax({
 		url : "",
@@ -195,6 +193,9 @@ function buy_sell() {
 			  console.log(response);
 			  if(response['status'] == 'success'){
 			  	alert('Transaction successful');
+			  }
+			  else if(response['status'] == 'noshare'){
+				alert('Enter valid shares to buy');
 			  }
 			  else{
 			  	alert('Transaction failed');
