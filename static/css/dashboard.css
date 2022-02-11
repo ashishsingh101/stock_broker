@@ -25,6 +25,7 @@ body { padding: 0px;
 	align-items: center;
 	padding: 0px;
 	position: relative;
+	z-index: 100;
 	
 }
 
@@ -250,7 +251,7 @@ pre{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 50;
   width: 100vw;
   height: 100vh;
   background-image: url("/static/media/loading.gif");

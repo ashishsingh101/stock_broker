@@ -40,7 +40,7 @@
 						</div>
 
 						<a href="{% url 'profile' %}" class="profile block relative"><img alt="profil" src="/images/person/1.jpg" class="mx-auto object-cover rounded-full h-16 w-16 "/>
-</a>
+						</a>
 
 					
 				</header>
@@ -90,7 +90,7 @@ window.onload = refresh_function();
 
 function refresh_function() {
 	$("#loading").show();
-	document.getElementById("content-container").style.visibility = "hidden";
+	//document.getElementById("content-container").style.visibility = "hidden";
 	document.getElementsByClassName('row')[0].style.visibility = "hidden";
 	fetchdata();
 }
@@ -123,7 +123,7 @@ function fetchdata() {
 		complete:function(data){
     		// Hide image container
     		$("#loading").hide();
-			document.getElementById("content-container").style.visibility = "visible";
+			//document.getElementById("content-container").style.visibility = "visible";
 			document.getElementsByClassName('row')[0].style.visibility = "visible";
    		},
 
