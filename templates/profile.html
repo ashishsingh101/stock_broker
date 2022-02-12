@@ -1,9 +1,52 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body>
-        <div class="backdrop-brightness-100"></div>
-        <div class="w-10"></div>
-    </body>
+
+<head>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}" />
+</head>
+
+<body class="bg-black">
+    <div class="flex space-x-4">
+        <!--column 1-->
+        <div class="w-1/4 h-screen place-content-center">
+            <div class='' >
+                <img src="{% static 'media/image/logo.png' %}" alt="home"/>
+            </div>
+            
+            <ul class="text-white pt-20 place-content-stretch text-2xl text-center align-middle">
+                <li class=" pt-5">
+                    <a href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                <li class="pt-5">
+                    <a href="">Orders</a>
+                </li>
+                <li class="pt-5">
+                    <a href="">Watchlist</a>
+                </li>
+            </ul>
+        </div>
+        <!--column 2-->
+        <div class="w-3/4 h-screen ">
+            <!--grid-->
+            <div class="grid grid-cols-3 gap-6 mt-[5%] h-[90%] mr-[5%]">
+                <div class="col-span-3 bg-zinc-900 w-full rounded-lg">
+                    ashish
+                </div>
+                <div class="bg-zinc-900 rounded-lg">
+                    singh
+                </div>
+                <div class="bg-zinc-900 rounded-lg">
+                    singh
+                </div>
+                <div class="bg-zinc-900 rounded-lg">
+                    singh
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

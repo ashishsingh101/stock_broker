@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',
     'stock.apps.StockConfig',
+    'tailwind',
+    'theme',
 ]
 
 MIDDLEWARE = [
@@ -145,5 +147,7 @@ URL_ROOT = ''
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT = 'dashboard'
+
+TAILWIND_APP_NAME = 'theme'
 
 #django_heroku.settings(locals())
