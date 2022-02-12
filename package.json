@@ -1,0 +1,22 @@
+{
+  "name": "stock_broker",
+  "version": "1.0.0",
+  "description": "ongoing... run 'pipreqs' to create requirements.txt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishsingh101/stock_broker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishsingh101/stock_broker/issues"
+  },
+  "homepage": "https://github.com/ashishsingh101/stock_broker#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.22"
+  }
+}
