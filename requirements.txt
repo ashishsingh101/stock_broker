@@ -1,5 +1,4 @@
-Django==1.11.11
-django_heroku==0.3.1
+Django==2.2.0
 nsepy==0.8
 nsetools==1.0.11
 pandas==1.1.5
