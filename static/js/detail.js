@@ -197,9 +197,6 @@ function buy_sell() {
 			  else if(response['status'] == 'noshare'){
 				alert('Enter valid shares to buy');
 			  }
-			  else if(response['status'] == 'not_inuf_share'){
-				alert('You do not have enough shares to sell');
-			  }
 			  else{
 			  	alert('Transaction failed');
 			  }

@@ -41,11 +41,3 @@ class SellShare(models.Model):
 
     def __str__(self):
         return self.user.username
-
-class HoldingPerStock(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    share_symbol = models.CharField(max_length=100)
-    quantity = models.IntegerField()
-
-    def __str__(self):
-        return self.user.username
