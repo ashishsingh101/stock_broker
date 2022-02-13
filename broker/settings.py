@@ -43,9 +43,6 @@ INSTALLED_APPS = [
     'stock.apps.StockConfig',
     'tailwind',
     'theme',
-
-    #3rd party
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
