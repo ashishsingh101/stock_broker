@@ -1,4 +1,5 @@
 # stock_broker
+python3 -> 3.6.9
 
 ongoing...
 run 'pipreqs' to create requirements.txt
