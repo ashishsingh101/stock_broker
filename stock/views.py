@@ -40,8 +40,6 @@ def dashboard(request):
 
         context['topGainers'] = nse.get_top_gainers()[:5]
         context['topLosers'] = nse.get_top_losers()[:5]
-        
-        
 
         logos = {}
         for ele in context['topGainers']:
@@ -114,7 +112,7 @@ def detail(request, stock_name):
             new_holding = HoldingPerStock.objects.create(user=user, share_symbol=request.POST['stock'], quantity=int(request.POST['quantity']))
             new_holding.save()
 
-        new_history = History.objects.create(user=user, share_symbol=request.POST['share'], buy_price=request.POST['price'])
+        new_history = History.objects.create(user=user, share_symbol=request.POST['stock'], buy_price=request.POST['price'], quantity=int(request.POST['quantity']))
         new_history.save()
 
         status = 'success'
@@ -132,16 +130,18 @@ def detail(request, stock_name):
             else:
                 sell_share = int(request.POST['quantity'])
                 for buyed_share in BuyShare.objects.filter(user=user, share_symbol=request.POST['stock']).order_by('date_time'):
-                    if sell_share > buyed_share.quantity:
+                    if sell_share >= buyed_share.quantity:
                         sell_share -= buyed_share.quantity
                         buyed_share.delete()
+                        if sell_share == 0:
+                            break
                     else:
                         buyed_share.quantity -= sell_share
                         buyed_share.save()
                         sell_share = 0
                         break
                 
-                if existed_holding.quantity == sell_share:
+                if existed_holding.quantity == int(request.POST['quantity']):
                     existed_holding.delete()
                 else:
                     existed_holding.quantity -= int(request.POST['quantity'])
@@ -149,7 +149,7 @@ def detail(request, stock_name):
         else:
             return JsonResponse({'status': 'not_inuf_share'})
 
-        new_history = History.objects.create(user=user, share_symbol=request.POST['share'], sell_price=request.POST['price'])
+        new_history = History.objects.create(user=user, share_symbol=request.POST['stock'], sell_price=request.POST['price'], quantity=int(request.POST['quantity']))
         new_history.save()
 
         status = 'success'

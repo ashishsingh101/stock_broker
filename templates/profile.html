@@ -6,10 +6,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}" />
+    <!--doughnut chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </head>
 
 <body class="bg-black">
-    <div class="flex space-x-[3%] justify-center">
+    <div class="flex space-x-[3%] justify-center m-[2%]">
         <!--column 1-->
         <div class="w-1/6 mt-[2.5%] place-content-center rounded-lg">
             <div class=''>
@@ -17,7 +21,7 @@
             </div>
 
             <ul class="text-white pt-20 place-content-stretch text-2xl text-center align-middle">
-                <li class=" pt-5">
+                <li class="pt-5">
                     <a href="{% url 'dashboard' %}">Dashboard</a>
                 </li>
                 <li class="pt-5">
@@ -32,14 +36,15 @@
             </ul>
         </div>
         <!--column 2-->
-        <div class="w-3/6 h-screen ">
+        <div class="w-3/6">
             <!--grid-->
-            <div class="grid grid-cols-3 gap-6 my-[5%] h-auto pr-[5%]">
-                <div class="col-span-3 bg-zinc-900 my-[5%] h-full w-full rounded-lg">
+            <!--ashish-->
+            <div class="grid grid-cols-3 gap-6 ">
+                <div class="col-span-3 bg-zinc-900 rounded-lg">
 
-                    <div class="grid grid-cols-2 gap-4 place-content-center">
+                    <div class="grid grid-cols-2 pb-8 gap-4 place-content-center">
                         <!--grid left-->
-                        <div class="pl-[10%] w-[90%] mt-[5%] place-self-start">
+                        <div class="pl-[10%] place-self-start">
                             <ul class="text-white">
                                 <li class="font-thin mt-6">NAME</li>
                                 <li class="my-2 text-xl">Ashish Singh</li>
@@ -56,7 +61,7 @@
                             </ul>
                         </div>
                         <!--grid right-->
-                        <div class="pr-[10%] w-[90%] mt-[5%] place-self-end">
+                        <div class="pr-[10%] place-self-end">
                             <ul class="text-white">
                                 <li class="font-thin mt-6">EMAIL ID</li>
                                 <li class="my-2 text-xl">Ashish Singh</li>
@@ -75,19 +80,22 @@
                     </div>
 
                 </div>
-                <div class="bg-zinc-900 my-[15%] h-full w-full rounded-lg">
-                    singh
-
+                <!--bottom left-->
+                <div class="col-span-2 bg-zinc-900 rounded-lg">
+                    <div class="flex justify-center pt-[3%] text-2xl text-white">HOLDINGS</div>
+                    <div class="shadow-lg rounded-lg px-[5%]">
+                        <canvas class="m-10" id="chartDoughnut"></canvas>
+                    </div>
                 </div>
-                <div class="bg-zinc-900 my-[15%] h-full w-full rounded-lg">
-                    singh
-                </div>
-                <div class="bg-zinc-900 my-[15%] h-full w-full rounded-lg">
+                <!--bottom right-->
+                <div class="col-span-1 bg-zinc-900 rounded-lg">
                     singh
                 </div>
             </div>
         </div>
     </div>
 </body>
+
+<script type='text/javascript' src="{% static 'js/profile.js' %}"></script>
 
 </html>

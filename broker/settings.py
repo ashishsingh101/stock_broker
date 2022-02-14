@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',
     'stock.apps.StockConfig',
+    'Profile.apps.ProfileConfig',
     'tailwind',
     'theme',
 ]

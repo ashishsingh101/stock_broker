@@ -224,12 +224,12 @@ function update_index(niftyPrice, niftyBankPrice, niftyChange, niftyPChange, nif
 	else{
 		nifty_price.innerHTML = niftyPrice+'</font>'+'<font color="#d55438">'+'  '+niftyChange+'  '+niftyPChange+'%'+'</font>';
 	}
-
+	console.log(niftyBankChange);
 	if(niftyBankChange >=0){
-		niftyBank_price.innerHTML = niftyBankPrice+'<font color="#0abb92">'+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%'+'</font>';
+		niftyBank_price.innerHTML = '<font color="">'+niftyBankPrice+'</font>'+'<font color="#0abb92">'+'  +'+niftyBankChange+'  +'+niftyBankPChange+'%'+'</font>';
 	}
 	else{
-		niftyBank_price.innerHTML = niftyBankPrice+'<font color="#d55438">'+'  '+niftyBankChange+'  '+niftyBankPChange+'%'+'</font>';
+		niftyBank_price.innerHTML = niftyBankPrice+'</font>'+'<font color="#d55438">'+'  '+niftyBankChange+'  '+niftyBankPChange+'%'+'</font>';
 	}
 	
 }
