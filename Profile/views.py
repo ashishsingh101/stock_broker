@@ -23,5 +23,18 @@ def profile(request):
             holdings['names'] = ['no holdings']
             holdings['quantity'] = [100]
         context['holdings'] = holdings
+
+        user_detail = CustomUser.objects.get(user=user)
+
+        details = {}
+        details['name'] = user.first_name + ' ' + user.last_name
+        details['email'] = user.email
+        details['phone'] = str(user_detail.phoneNumber)
+        details['dob'] = user_detail.dateOfBirth
+        details['gender'] = user_detail.gender
+        details['uuid'] = user_detail.uniqueCode
+        details['wallet'] = user_detail.wallet
+        context['details'] = details
+
         return JsonResponse(context)
     return render(request, 'profile.html', {})

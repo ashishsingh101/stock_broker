@@ -12,10 +12,10 @@
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </head>
 
-<body class="bg-black">
-    <div class="flex gap-6 justify-center m-[2%]">
+<body class="bg-black ">
+    <div class="flex gap-6 justify-center m-[4%] w-[80%]">
         <!--column 1-->
-        <div class="w-1/6  place-content-center rounded-lg bg-zinc-900">
+        <div class="w-2/6 rounded-lg bg-zinc-900">
             <div class='flex flex-row justify-center mt-[10%]'>
                 <img src="{% static 'media/image/logo.png' %}" alt="home" />
             </div>
@@ -36,11 +36,11 @@
             </ul>
         </div>
         <!--column 2-->
-        <div class="w-3/6">
+        <div class="w-4/6">
             <!--grid-->
             <!--ashish-->
-            <div class="grid grid-cols-3 gap-6 ">
-                <div class="col-span-3 bg-zinc-900 rounded-lg">
+            <div class="grid grid-cols-4 gap-6 ">
+                <div class="col-span-4 bg-zinc-900 rounded-lg">
 
                     <div class="grid grid-cols-2 pb-8 gap-4 place-content-center">
                         <!--grid left-->
@@ -82,14 +82,36 @@
                 </div>
                 <!--bottom left-->
                 <div class="col-span-2 bg-zinc-900 rounded-lg">
-                    <div class="flex justify-center pt-[3%] text-2xl text-white">HOLDINGS</div>
-                    <div class="shadow-lg rounded-lg px-[5%]">
+                    <div class="flex justify-center m-[5%] text-2xl text-white">HOLDINGS</div>
+                    <div class="shadow-lg rounded-lg m-[3%] ">
                         <canvas class="m-10" id="chartDoughnut"></canvas>
                     </div>
                 </div>
                 <!--bottom right-->
-                <div class="col-span-1 bg-zinc-900 rounded-lg">
-                    singh
+                <div class="col-span-2 ">
+                    <div class="grid grid-cols-1 h-full gap-6">
+                        <div class="flex flex-col items-center justify-center col-span-1 bg-zinc-900 rounded-lg ">
+                            
+                            <div class="text-white text-2xl font-thin">
+                                WALLET
+                            </div>
+                            <br>
+                            <div class="wallet_money text-green-500 text-4xl">
+                                ₹100,000
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center col-span-1 bg-zinc-900 rounded-lg ">
+                            
+                            <div class="text-white text-2xl font-thin">
+                                INVESTED
+                            </div>
+                            <br>
+                            <div class="wallet_money text-white text-4xl">
+                                ₹100,000
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

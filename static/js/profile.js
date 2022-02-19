@@ -1,4 +1,4 @@
-window.onload = getData();
+window.onload = mainFunction;
 window.data = '';
 
 function getCookie(name) {
@@ -17,6 +17,11 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function mainFunction() {
+    getData();
+
+}
+
 function getData() {
 
     $.ajax({
@@ -32,6 +37,7 @@ function getData() {
         success: function (response) {
             //console.log(response['one_month_data']);
             makechart(response['holdings']);
+            console.log(response['details']);
         },
     });
 }

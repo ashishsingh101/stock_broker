@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'Profile.apps.ProfileConfig',
     'tailwind',
     'theme',
+
+    #3rd party
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
