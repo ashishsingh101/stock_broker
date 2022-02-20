@@ -37,9 +37,20 @@ function getData() {
         success: function (response) {
             //console.log(response['one_month_data']);
             makechart(response['holdings']);
-            console.log(response['details']);
+            updateDetails(response['details']);
         },
     });
+}
+
+function updateDetails(details) {
+    console.log(details);
+    document.getElementById('name').innerHTML = details['name'];
+    document.getElementById('email').innerHTML = details['email'];
+    document.getElementById('phone').innerHTML = details['phone'];
+    document.getElementById('gender').innerHTML = details['gender'];
+    document.getElementById('dob').innerHTML = details['dob'];
+    document.getElementById('uuid').innerHTML = details['uuid'];
+    document.getElementById('wallet_money').innerHTML = details['wallet'];
 }
 
 function makechart(holdings) {
@@ -50,11 +61,39 @@ function makechart(holdings) {
                 label: "My First Dataset",
                 data: holdings.quantity,
                 backgroundColor: [
-                    "rgb(133, 105, 241)",
-                    "rgb(164, 101, 241)",
-                    "rgb(101, 143, 241)",
+                    '#003f5c',
+                    '#2f4b7c',
+                    '#665191',
+                    '#a05195',
+                    '#d45087',
+                    '#f95d6a',
+                    '#ff7c43',
+                    '#ffa600',
+                    '#004c6d',
+                    '#006083',
+                    '#007599',
+                    '#008bad',
+                    '#00a1c1',
+                    '#00b8d3',
+                    '#00cfe3',
+                    '#00e7f2',
+                    '#00ffff',
+                    '#488f31',
+                    '#6a9e3c',
+                    '#8aac49',
+                    '#a8bb59',
+                    '#c6c96a',
+                    '#e3d87d',
+                    '#ffe792',
+                    '#fccd7a',
+                    '#f8b267',
+                    '#f2975a',
+                    '#eb7a52',
+                    '#e15d50',
+                    '#de425b',
                 ],
                 hoverOffset: 4,
+                borderWidth: 0,
             },
         ],
     };
