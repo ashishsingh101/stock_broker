@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from users.models import CustomUser
 from stock.models import HoldingPerStock
@@ -38,3 +39,7 @@ def profile(request):
 
         return JsonResponse(context)
     return render(request, 'profile.html', {})
+
+def orders(request):
+    context = {}
+    return render(request, 'orders.html', context)
