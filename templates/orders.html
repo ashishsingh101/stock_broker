@@ -9,15 +9,72 @@
 
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </head>
+<style>
+    #inner_container {
+        -ms-overflow-style: none;
+        /* for Internet Explorer, Edge */
+        scrollbar-width: none;
+        /* for Firefox */
+    }
+
+    #inner_container::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
 <body class="bg-black">
     <!--container-->
-    <div class="flex h-screen py-[10%] justify-center items-center">
-        <!--inner container-->
-        <div class=" border-white border-2 border-opacity-20 h-full w-[80%] rounded-xl">
-            <ul class="text-white p-4 ">
-                <div class="bg-zinc-900">
-                    <li class="font-thin mt-6">NAME</li>
+    <div class="grid grid-cols-6 gap-4 h-screen py-[5%] px-[10%] justify-center items-center font-serif">
+        <div
+            class="flex flex-col justify-center items-center col-span-2 border-white border-2 border-opacity-20 h-full rounded-xl">
+            <form action="POST">
+                <div class="text-white text-2xl">
+                    <input type="checkbox" id="buy_orders" class="checked:bg-blue-900 ..." />
+                    <label for="buy_orders">Buy Orders</label>
                 </div>
+                <div class="text-white text-2xl">
+                    <input type="checkbox" id="buy_orders" class="checked:bg-blue-900 ..." />
+                    <label for="buy_orders">Sell Orders</label>
+                </div>
+            </form>
+        </div>
+        <!--inner right container-->
+        <div id="inner_container"
+            class="col-span-4 border-white border-2 border-opacity-20 h-full rounded-xl overflow-y-auto">
+            <ul class="text-white p-4 ">
+                {% for order in all_orders %}
+                <div class="bg-zinc-900 m-3 p-5 rounded-lg">
+                    <div class="flex flex-row justify-between text-lg">
+                        <div class="flex flex-col">
+                            <li class="font-bold ">{{order.share_symbol}}</li>
+                            {% if order.buy_price %}
+                            <li class="font-thin">Buy</li>
+                            {% else %}
+                            <li class="font-thin">Sell</li>
+                            {% endif %}
+
+                        </div>
+                        <div class="flex flex-col">
+                            <li class="font-bold">{{order.quantity}}</li>
+                            <li class="font-thin">Shares</li>
+                        </div>
+                        <div class="flex flex-col">
+                            {% if order.buy_price %}
+                            <li class="font-bold">{{order.buy_price}}</li>
+                            {% else %}
+                            <li class="font-bold">{{order.sell_price}}</li>
+                            {% endif %}
+                            <li class="font-thin">Price</li>
+                        </div>
+                        <div class="flex flex-col">
+                            <li class="font-bold">{{order.date_time.time}}</li>
+                            <li class="font-thin">{{order.date_time.date}}</li>
+                        </div>
+
+
+                    </div>
+                </div>
+                {% endfor %}
             </ul>
         </div>
     </div>

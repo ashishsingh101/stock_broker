@@ -3,6 +3,7 @@ from django.shortcuts import render
 from users.models import CustomUser
 from stock.models import HoldingPerStock
 from django.http.response import HttpResponse, JsonResponse
+from stock.models import History
 
 # Create your views here.
 
@@ -41,5 +42,10 @@ def profile(request):
     return render(request, 'profile.html', {})
 
 def orders(request):
+    user = request.user
     context = {}
+
+    all_orders = History.objects.filter(user=user).order_by('-date_time')
+    context['all_orders'] = all_orders
+
     return render(request, 'orders.html', context)
