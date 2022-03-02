@@ -102,10 +102,11 @@ body { padding: 0px;
 width: 100%;
 height: 694px;
 overflow-y: scroll;
-background: rgba(61, 60, 60, 0.57);
+background: black;
 border-radius: 15px;
 -ms-overflow-style: none;
 scrollbar-width: none;
+border: rgb(63, 63, 63) solid 0.5px;
 }
 .investment::-webkit-scrollbar {
 	display: none;
@@ -258,4 +259,26 @@ pre{
   background-repeat: no-repeat;
   background-position: center;
   background-size: 40%;
+}
+
+.holdings {
+	color: white;
+	padding-left: 4px;
+	padding-right: 4px;
+	list-style-type: none;
+}
+.each_holding {
+	margin: 0.75rem; /* 12px */
+	padding: 20px;
+	border-radius: 0.5rem; /* 8px */
+	background-color: #1d1d1d;
+}
+.flex_row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.flex_col {
+	display: flex;
+	flex-direction: column;
 }

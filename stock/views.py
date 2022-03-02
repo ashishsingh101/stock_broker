@@ -10,6 +10,7 @@ import time, datetime
 from broker.settings import URL_ROOT
 from django.shortcuts import redirect
 from .models import BuyShare, HoldingPerStock, History
+from .models import all_stocks 
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def my_redirect(url):
 
 def dashboard(request):
     user = request.user
+    holdings = HoldingPerStock.objects.filter(user=user)
 
     if not user.is_authenticated:
         return my_redirect('/login/')
@@ -27,6 +29,7 @@ def dashboard(request):
     if request.method == "POST" and request.POST['action']=='dashboard_data':
         context = {}
         nse = Nse()
+        print(len(nse.get_stock_codes().keys()))
 
         index_nifty = nse.get_index_quote("nifty 50")
         context['niftyPrice'] = index_nifty['lastPrice']
@@ -49,8 +52,8 @@ def dashboard(request):
         context['logos'] = logos
 
         return JsonResponse(context)
-
-    return render(request, 'dashboard.html', {})
+    
+    return render(request, 'dashboard.html', {'holdings': holdings, 'all_stocks': all_stocks})
 
 def detail(request, stock_name):
     user = request.user
