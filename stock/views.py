@@ -21,10 +21,10 @@ def my_redirect(url):
 
 def dashboard(request):
     user = request.user
-    holdings = HoldingPerStock.objects.filter(user=user)
 
     if not user.is_authenticated:
         return my_redirect('/login/')
+    holdings = HoldingPerStock.objects.filter(user=user)
 
     if request.method == "POST" and request.POST['action']=='dashboard_data':
         context = {}
