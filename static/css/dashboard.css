@@ -34,17 +34,26 @@ body { padding: 0px;
 	display: inline-block;
 }
 
+.dropdown_content {
+	position: absolute;
+	margin-left: 10%;
+	position: relative;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  color: white;
+}
+#stock-list li a {
+	color : white;
+}
 .header_input {
 	margin-left: 2%;
 	width: 60%;
-	display: flex;
-	flex-direction: column;
+	display: inline-block;
 	justify-content: center;
 	align-items: center;
 	padding: 0px;
-
-    position: relative;
-	
+    position: relative;	
 }
 .input1 {
 	padding-left: 2%;
