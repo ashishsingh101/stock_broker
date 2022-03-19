@@ -26,18 +26,15 @@
 	<!--favicon-->
 	<link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}" />
 
-	
-	<script src=  
-"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
-    </script>  
-    
-    <script src=  
-"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
-    </script>  
-    
-    <link href=  
-"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
-        rel="stylesheet" type="text/css" /> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+	</script>
+
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet"
+		type="text/css" />
 </head>
 
 <body>
@@ -49,25 +46,25 @@
 			<div class='header_logo'>
 				<img src="{% static 'media/image/logo.png' %}" alt="home" />
 			</div>
-			<div class='header_input'>
-				<input id='tags' class="input1" type="search">
+			<!-- 		
+				<div class='header_input'>
+					<input id='tags' class="input1" type="search">
+				</div>
+			-->
+			<div class="header_input">
+				<input type="text" class="input1" onkeyup="filterStocks()" id="filter_stocks" />
+				
 			</div>
-			<script>
-				$( function() {
-				  var availableTags = "{{all_stocks}}";
-				  console.log(availableTags);
-				  $( "#tags" ).autocomplete({
-					source: "{{all_stocks}}"
-				  });
-				} );
-				</script>
 
 			<a href="{% url 'profile' %}" class="profile block relative"><img alt="profil"
 					src="{% static 'media/image/logo.png' %}" class="mx-auto object-cover rounded-full h-16 w-16 " />
 			</a>
 
 		</header>
-
+	</div>
+	<div class="dropdown_content">
+		<ul id="stock-list">
+		</ul>
 	</div>
 
 	<div class='row'>
@@ -114,11 +111,6 @@
 								<li class="font-bold">{{holding.quantity}}</li>
 								<li class="font-thin">Shares</li>
 							</div>
-							<div class="flex_col">
-								<li class="font-bold">price</li>
-								<li class="font-thin">avg Price</li>
-							</div>
-
 
 						</div>
 					</div>
@@ -280,6 +272,27 @@
 		}
 
 	}
+
+	function filterStocks(event) {
+		all_stocks = {{all_stocks|safe}} ;
+		let input = document.getElementById('filter_stocks');
+		let keyword = input.value.toUpperCase();
+		filtered_stocks = all_stocks.filter(function(arr) {
+			return arr.indexOf(keyword) !== -1
+		})
+		console.log(all_stocks.indexOf(filtered_stocks[0]))
+		ul = document.getElementById("stock-list");
+		let li = "";	
+		if( !keyword.length){
+			li = ""
+		}else{  
+			for (index in filtered_stocks.slice(0, 6)) {
+				li += "<li>" + "<a href='#'>" + filtered_stocks[index] + "<a>" + "<li>";
+			}
+		}
+		ul.innerHTML = li;
+	}
+
 
 	$(document).ready(function () {
 		setInterval(fetchdata, 60000);
