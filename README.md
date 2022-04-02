@@ -25,5 +25,3 @@ run 'pipreqs' to create requirements.txt
 # SIGNUP UI
 ![signup](signup_ui.png)
 
-# Detail UI
-![detail](candlestick_chart.png)
