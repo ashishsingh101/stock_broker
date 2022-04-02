@@ -5,7 +5,19 @@ ongoing...
 run 'pipreqs' to create requirements.txt
 
 # Dashboard UI
-![dashboard](dashboard_ui.png)
+![dashboard](dashboard.png)
+
+# Detail UI
+![detail](detail.png)
+
+# Profile UI
+![profile](profile.png)
+
+# Brokerage UI
+![brokerage](brokerage.png)
+
+# All Orders UI
+![orders](orders.png)
 
 # LOGIN UI
 ![login](login_ui.png)
