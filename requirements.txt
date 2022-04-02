@@ -13,7 +13,6 @@ nsepy==0.8
 nsetools==1.0.11
 numpy==1.19.5
 pandas==1.1.5
-pkg-resources==0.0.0
 python-dateutil==2.8.2
 pytz==2021.3
 requests==2.27.1

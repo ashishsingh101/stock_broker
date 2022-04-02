@@ -29,7 +29,7 @@ def dashboard(request):
     if request.method == "POST" and request.POST['action']=='dashboard_data':
         context = {}
         nse = Nse()
-        print(len(nse.get_stock_codes().keys()))
+        #print(nse.get_stock_codes().keys())  # prints all the stock codes 
 
         index_nifty = nse.get_index_quote("nifty 50")
         context['niftyPrice'] = index_nifty['lastPrice']
