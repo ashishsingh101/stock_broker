@@ -173,3 +173,15 @@ font-weight: bold;
 	cursor: pointer;
 	box-shadow: 0px 0px 0.5px 0.5px #0abb92;
 }
+
+.high_low {
+	position: relative;
+	width: 80%;
+	max-width: 800px;
+	min-width: 600px;
+	margin: 35px auto;
+}
+.one_year {
+	width: 100%;
+	align-items: center;
+}

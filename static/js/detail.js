@@ -35,6 +35,7 @@ function getData(){
 			  makechart(response['one_month_data'], response['stock']);
 			  window.stock_data = response['stock'];
 			  buy_shares();
+			  update_data();
 		},
 	});
 }
@@ -205,4 +206,27 @@ function buy_sell() {
 			  }
 		},
 	});
+}
+
+function update_data() {
+	var stock = window.stock_data;
+
+	var year_low = document.getElementById('year_low');
+	year_low.innerHTML = '₹'+stock['low52'];
+	var year_high = document.getElementById('year_high');
+	year_high.innerHTML = '₹'+stock['high52'];
+	var year_high_low = document.getElementById('year_high_low');
+	year_high_low.min = stock['low52'];
+	year_high_low.max = stock['high52'];
+	year_high_low.value = stock['lastPrice'];
+
+	var day_low = document.getElementById('day_low');
+	day_low.innerHTML = '₹'+stock['dayLow'];
+	var day_high = document.getElementById('day_high');
+	day_high.innerHTML = '₹'+stock['dayHigh'];
+	var day_high_low = document.getElementById('day_high_low');
+	day_high_low.min = stock['dayLow'];
+	day_high_low.max = stock['dayHigh'];
+	day_high_low.value = stock['lastPrice'];
+	
 }
