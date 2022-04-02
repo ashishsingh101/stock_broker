@@ -16,9 +16,9 @@
     <div class="flex gap-6 justify-center m-[4%] w-[80%]">
         <!--column 1-->
         <div class="w-2/6 rounded-lg bg-zinc-900">
-            <div class='flex flex-row justify-center mt-[10%]'>
+            <a id="logo" class='flex flex-row justify-center mt-[10%]' href="{% url 'dashboard' %}">
                 <img src="{% static 'media/image/logo.png' %}" alt="home" />
-            </div>
+            </a>
 
             <ul class="text-white pt-20 place-content-stretch text-2xl text-center align-middle">
                 <li class="pt-5">
@@ -32,6 +32,9 @@
                 </li>
                 <li class="pt-5">
                     <a href="">Watchlist</a>
+                </li>
+                <li class="pt-5">
+                    <a href="{% url 'brokerage' %}">Brokerage</a>
                 </li>
             </ul>
         </div>

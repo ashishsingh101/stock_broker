@@ -27,6 +27,9 @@
     <div class="grid grid-cols-6 gap-4 h-screen py-[5%] px-[10%] justify-center items-center font-serif">
         <!--inner left container-->
         <div class="flex flex-col justify-center items-center col-span-2 border-white border-2 border-opacity-20 h-full rounded-xl">
+            <a id="logo" class='flex justify-self-start mt-[10%]' href="{% url 'dashboard' %}">
+                <img src="{% static 'media/image/logo.png' %}" alt="home" />
+            </a>
             <form action="POST">
                 <div class="text-white text-2xl">
                     <input type="checkbox" id="buy_orders" class="checked:bg-black ..." />

@@ -49,3 +49,9 @@ def orders(request):
     context['all_orders'] = all_orders
 
     return render(request, 'orders.html', context)
+
+def brokerage(request):
+    user = request.user
+    context = {}
+
+    return render(request, 'brokerage.html', context)

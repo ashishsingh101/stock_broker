@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}" />
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+</head>
+
+<body class="bg-black">
+    <!--container-->
+    <div id="table" class="flex place-content-center h-screenp pt-[5%] pb-[5%]">
+        <table class="">
+            <thead>
+                <tr>
+                    <th rowspan="3">
+                        <a id="logo" class="flex justify-center" href="{% url 'dashboard' %}">
+                            <img src="{% static 'media/image/logo.png' %}" alt="home" />
+                        </a>
+                    </th>
+                    <th colspan="2">Equity</th>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-white">
+                        Delivery
+                    </th>
+                </tr>
+                <tr>
+                    <th>BUY</th>
+                    <th>SELL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Equity Brokerage</td>
+                    <td colspan="2">₹20 per Executed Order</td>
+                </tr>
+                <tr>
+                    <td>STT (Securities Transaction Tax)</td>
+                    <td>0.1%</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Stamp Duty</td>
+                    <td>0.015%</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Exchange Transaction Charge</td>
+                    <td>0.00345%</td>
+                    <td>0.00345%</td>
+                </tr>
+                <tr>
+                    <td>SEBI Turnover Charge</td>
+                    <td>0.0001%</td>
+                    <td>0.0001%</td>
+                </tr>
+                <tr>
+                    <td>DP Charge</td>
+                    <td>0</td>
+                    <td>₹13.5</td>
+                </tr>
+                <tr>
+                    <td>GST</td>
+                    <td colspan="2">18% On Brokerage, DP Charges,
+                        Exchange Charges
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<style>
+    #inner_container {
+        -ms-overflow-style: none;
+        /* for Internet Explorer, Edge */
+        scrollbar-width: none;
+        /* for Firefox */
+    }
+
+    #inner_container::-webkit-scrollbar {
+        display: none;
+    }
+    #table td, #table th, #table tr {
+        text-align: center;
+        color: rgb(233, 233, 233);
+        border-collapse: collapse;
+        border: solid 0.5px rgb(92, 90, 90);
+        font-size: large;
+    }
+    #table_template {
+        width: 90%;
+        height: 90%;
+    }
+    #table td, #table th {
+        padding: 3%;
+    }
+    #logo:hover {
+        cursor: pointer;
+    }
+</style>
