@@ -4,29 +4,32 @@
 /* Only edit this if you know what you are doing! */
 
 html {
-	background:#000000 ;
+	background: #000000;
 }
 
-body { padding: 0px;
+body {
+	padding: 0px;
 	height: 100vh;
 	overflow-y: scroll;
 	overflow-x: scroll;
-	-ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
 }
+
 .body::-webkit-scrollbar {
 	display: none;
 }
 
 .header {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 	justify-content: left;
 	align-items: center;
 	padding: 0px;
 	position: relative;
 	z-index: 100;
-	
+
 }
 
 .header_logo {
@@ -38,14 +41,20 @@ body { padding: 0px;
 	position: absolute;
 	margin-left: 10%;
 	position: relative;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  border: 1px solid #ddd;
-  color: white;
+	background-color: #000000;
+	min-width: 230px;
+	color: white;
+
 }
+
+#stock-list {
+	list-style-type: none;
+}
+
 #stock-list li a {
-	color : white;
+	color: white;
 }
+
 .header_input {
 	margin-left: 2%;
 	width: 60%;
@@ -53,14 +62,15 @@ body { padding: 0px;
 	justify-content: center;
 	align-items: center;
 	padding: 0px;
-    position: relative;	
+	position: relative;
 }
+
 .input1 {
 	padding-left: 2%;
 	width: 100%;
 	height: 4vh;
-    flex-grow: 0;
-    margin: 0px 37px;
+	flex-grow: 0;
+	margin: 0px 37px;
 	overflow: hidden;
 	font-size: 18px;
 	text-transform: uppercase;
@@ -68,7 +78,7 @@ body { padding: 0px;
 	-o-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
-	background:rgba(196,196,196,1);
+	background: rgba(196, 196, 196, 1);
 }
 
 .profile {
@@ -76,20 +86,23 @@ body { padding: 0px;
 	position: relative;
 	width: 5vh;
 	height: 5vh;
-	background-color:rgba(196,196,196,1);
-	background-size:cover;
+	background-color: rgba(196, 196, 196, 1);
+	background-size: cover;
 	border-radius: 50px;
 }
 
 .row {
 	overflow-y: scroll;
 	overflow-x: scroll;
-	-ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
 }
+
 .row::-webkit-scrollbar {
 	display: none;
 }
+
 .main_column {
 	float: left;
 	min-width: 900px;
@@ -98,25 +111,29 @@ body { padding: 0px;
 	height: 100%;
 	align-items: center;
 }
+
 .side_column {
 	min-width: 400px;
 	width: 30%;
 	float: right;
 	margin: 1%;
 }
+
 .investment_logo {
 	margin: 1%;
 }
+
 .investment {
-width: 100%;
-height: 694px;
-overflow-y: scroll;
-background: black;
-border-radius: 15px;
--ms-overflow-style: none;
-scrollbar-width: none;
-border: rgb(63, 63, 63) solid 0.5px;
+	width: 100%;
+	height: 694px;
+	overflow-y: scroll;
+	background: black;
+	border-radius: 15px;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	border: rgb(63, 63, 63) solid 0.5px;
 }
+
 .investment::-webkit-scrollbar {
 	display: none;
 }
@@ -125,9 +142,11 @@ border: rgb(63, 63, 63) solid 0.5px;
 	margin-top: 20px;
 	margin-left: 2%;
 }
+
 .index_logo {
 	margin-left: 3%;
 }
+
 .index div {
 	margin: 0 1% 3% 1%;
 	border-radius: 12px;
@@ -139,65 +158,79 @@ border: rgb(63, 63, 63) solid 0.5px;
 	box-shadow: 0px 0px 2px 2px #000000;
 	background: #1d1d1d;
 }
+
 .nifty {
-	min-width:270px;
+	min-width: 270px;
 }
+
 .nifty:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
 	cursor: pointer;
 }
+
 .nifty_text {
 	margin-left: 5%;
 	color: rgb(255, 255, 255);
 }
+
 #nifty_price {
 	margin-left: 5%;
 	color: rgb(255, 255, 255);
 }
+
 .niftyBank {
 	min-width: 270px;
 }
+
 .niftyBank:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
 	cursor: pointer;
 }
+
 .niftyBank_text {
 	margin-left: 5%;
 	color: rgb(255, 255, 255);
 }
+
 #niftyBank_price {
 	margin-left: 5%;
 	color: rgb(255, 255, 255);
 }
 
 .topgainer_logo {
-    margin-left: 3%;
+	margin-left: 3%;
 }
+
 #gainer {
 	margin-left: 2%;
 	margin-bottom: 3%;
 }
+
 .gainer_div {
 	margin-left: 1%;
-    position: relative;
+	position: relative;
 	min-width: 152px;
 	width: 15%;
-    min-height: 152px;
+	min-height: 152px;
 	height: 15%;
-    border-radius: 12px;
+	border-radius: 12px;
 	display: inline-block;
 	box-shadow: 0px 0px 2px 2px #000000;
 	background: #1d1d1d;
 }
+
 .gainer_div:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
 	cursor: pointer;
 }
-#gainer > div > p, #gainer > div > pre {
+
+#gainer>div>p,
+#gainer>div>pre {
 	margin-left: 2%;
 	color: rgb(255, 255, 255);
 }
-#gainer > div > img {
+
+#gainer>div>img {
 	box-sizing: inherit;
 	object-fit: contain;
 	max-width: 36px;
@@ -209,31 +242,37 @@ border: rgb(63, 63, 63) solid 0.5px;
 .toploser_logo {
 	margin-left: 3%;
 }
+
 #loser {
 	margin-left: 2%;
 	margin-bottom: 3%;
 }
+
 .loser_div {
 	margin-left: 1%;
-    position: relative;
+	position: relative;
 	min-width: 152px;
 	width: 15%;
-    min-height: 152px;
+	min-height: 152px;
 	height: 15%;
-    border-radius: 12px;
+	border-radius: 12px;
 	display: inline-block;
 	box-shadow: 0px 0px 2px 2px #000000;
 	background: #1d1d1d;
 }
+
 .loser_div:hover {
 	box-shadow: 0px 0px 1px 1px #292929;
 	cursor: pointer;
 }
-#loser > div > p, #loser > div > pre {
+
+#loser>div>p,
+#loser>div>pre {
 	margin-left: 2%;
 	color: rgb(255, 255, 255);
 }
-#loser > div > img {
+
+#loser>div>img {
 	width: 30%;
 	height: 30%;
 }
@@ -248,26 +287,28 @@ border: rgb(63, 63, 63) solid 0.5px;
 	box-shadow: 0px 0px 2px 2px #000000;
 
 }
+
 .equity_logo {
 	max-height: 100%;
 	max-width: 100%;
 	vertical-align: middle;
 }
-pre{
+
+pre {
 	font-size: medium;
 }
 
 #loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/static/media/loading.gif");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 40%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("/static/media/loading.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 40%;
 }
 
 .holdings {
@@ -276,17 +317,22 @@ pre{
 	padding-right: 4px;
 	list-style-type: none;
 }
+
 .each_holding {
-	margin: 0.75rem; /* 12px */
+	margin: 0.75rem;
+	/* 12px */
 	padding: 20px;
-	border-radius: 0.5rem; /* 8px */
+	border-radius: 0.5rem;
+	/* 8px */
 	background-color: #1d1d1d;
 }
+
 .flex_row {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
+
 .flex_col {
 	display: flex;
 	flex-direction: column;

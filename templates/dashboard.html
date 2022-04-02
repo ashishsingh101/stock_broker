@@ -287,7 +287,8 @@
 			li = ""
 		}else{  
 			for (index in filtered_stocks.slice(0, 6)) {
-				li += "<li>" + "<a href='#'>" + filtered_stocks[index] + "<a>" + "<li>";
+				li += "<li>" + "<a href=" + '/detail/' + filtered_stocks[index] + ">" + filtered_stocks[index] + "</a>" + "</li>";
+				li.className = filtered_stocks[index];
 			}
 		}
 		ul.innerHTML = li;
