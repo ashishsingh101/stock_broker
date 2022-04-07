@@ -55,10 +55,18 @@
 				<input type="text" class="input1" onkeyup="filterStocks()" id="filter_stocks" />
 				
 			</div>
-
+			<!--
 			<a href="{% url 'profile' %}" class="profile block relative"><img alt="profil"
-					src="{% static 'media/image/logo.png' %}" class="mx-auto object-cover rounded-full h-16 w-16 " />
+					src="{% static 'media/image/logo.png' %}" class="mx-auto object-cover rounded-full h-16 w-16" />
 			</a>
+			-->
+			<div class="dropdown">
+				<button class="dropbtn"></button>
+				<div class="dropdown-content">
+				  <a href="{% url 'profile' %}">Profile</a>
+				  <a href="{% url 'logout' %}">Logout</a>
+				</div>
+			  </div>
 
 		</header>
 	</div>

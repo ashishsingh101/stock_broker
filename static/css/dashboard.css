@@ -337,3 +337,39 @@ pre {
 	display: flex;
 	flex-direction: column;
 }
+
+.dropbtn {
+	width: 5vh;
+	height: 5vh;
+	background-color: rgba(196, 196, 196, 1);
+	background-size: cover;
+	border-radius: 50px;
+  }
+  
+  .dropdown {
+	margin-left: auto;
+  }
+  
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: black;
+	min-width: 160px;
+	right: 0;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border: solid 1px rgb(75, 74, 74);
+	z-index: 1;
+  }
+  
+  .dropdown-content a {
+	color: white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
