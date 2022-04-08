@@ -385,6 +385,23 @@ div { position: absolute; }
 				<div id="create_password" >
 					create password
 				</div>
+				{% if email_exists %}
+				<script>
+					alert('email already exists ')
+				</script>
+				{% elif username_err %}
+					<script>
+						alert('username must be between 6 and 18 characters long and should contain letters and numbers only (must contain atleast one letter)')
+					</script>
+				{% elif user_exists %}
+				<script>
+					alert('username already exists ')
+				</script>
+				{% elif password_err%}
+				<script>
+					alert('password must be between 6 and 18 characters long and should contain letters, numbers and special characters only (must contain atleast one letter, one number and one special character)')
+				</script>
+				{% endif %}
 
 				<form method="POST">{% csrf_token %}
 					<div id="firstname_input" >
