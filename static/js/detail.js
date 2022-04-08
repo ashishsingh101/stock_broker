@@ -1,5 +1,5 @@
 //var csrftoken = document.cookie.get('csrftoken')
-window.onload = getData();
+window.onload = default_function();
 window.stock_data = '';
 
 function getCookie(name) {
@@ -18,7 +18,12 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function getData(){
+function default_function() {
+	document.getElementById('container').style.visibility = 'hidden';
+	getData();
+}
+
+async function getData(){
 
 	$.ajax({
 		url : "",
@@ -36,6 +41,11 @@ function getData(){
 			  window.stock_data = response['stock'];
 			  buy_shares();
 			  update_data();
+		},
+		complete: function (data) {
+			// Hide image container
+			document.getElementById('loading').style.visibility = 'hidden';
+			document.getElementById('container').style.visibility = 'visible';
 		},
 	});
 }

@@ -185,3 +185,16 @@ font-weight: bold;
 	width: 100%;
 	align-items: center;
 }
+
+#loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("/static/media/loading.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 40%;
+}
