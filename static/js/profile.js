@@ -50,7 +50,7 @@ function updateDetails(details) {
     document.getElementById('gender').innerHTML = details['gender'];
     document.getElementById('dob').innerHTML = details['dob'];
     document.getElementById('uuid').innerHTML = details['uuid'];
-    document.getElementById('wallet_money').innerHTML = details['wallet'];
+    document.getElementById('wallet_money').innerHTML = parseFloat(details['wallet']).toFixed(2);
 }
 
 function makechart(holdings) {

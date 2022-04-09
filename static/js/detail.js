@@ -211,6 +211,9 @@ function buy_sell() {
 			  else if(response['status'] == 'not_inuf_share'){
 				alert('You do not have enough shares to sell');
 			  }
+			  else if(response['status'] == 'notenough_money'){
+				alert('You do not have enough money to buy');
+			  }
 			  else{
 			  	alert('Transaction failed');
 			  }

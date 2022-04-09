@@ -22,7 +22,7 @@ class CustomUser(models.Model):
     dateOfBirth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=gender_choices, null=True)
     uniqueCode = models.UUIDField(unique=True, default=uuid.uuid4().hex, blank=True)
-    wallet = models.IntegerField(default=int(100000))
+    wallet = models.FloatField(default=float(100000))
     
 
     def __str__(self):
