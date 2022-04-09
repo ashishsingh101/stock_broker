@@ -40,6 +40,7 @@ async function getData(){
 			  makechart(response['one_month_data'], response['stock']);
 			  window.stock_data = response['stock'];
 			  buy_shares();
+			  window.shares_holding = response['shares_holding'];
 			  update_data();
 		},
 		complete: function (data) {
@@ -203,7 +204,15 @@ function buy_sell() {
 		success: function(response) {
 			  console.log(response);
 			  if(response['status'] == 'success'){
-			  	alert('Transaction successful');
+			  	alert('Transaction successful');	
+				if (action == 'Buy'){
+					window.shares_holding = parseInt(window.shares_holding) + parseInt(quantity);
+					document.getElementsByClassName('shares_holding')[0].innerHTML = window.shares_holding + ' shares';
+				}
+				else{
+					window.shares_holding = parseInt(window.shares_holding) - parseInt(quantity);
+					document.getElementsByClassName('shares_holding')[0].innerHTML = window.shares_holding + ' shares';
+				}			
 			  }
 			  else if(response['status'] == 'noshare'){
 				alert('Enter valid shares to buy');
@@ -241,5 +250,8 @@ function update_data() {
 	day_high_low.min = stock['dayLow'];
 	day_high_low.max = stock['dayHigh'];
 	day_high_low.value = stock['lastPrice'];
+
+	var shares_holding = document.getElementsByClassName('shares_holding')[0];
+	shares_holding.innerHTML = window.shares_holding + ' shares';
 	
 }

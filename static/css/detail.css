@@ -107,6 +107,16 @@ body { padding: 0px;
 	padding-top: 0;
 	padding-left: 3%;
 }
+.shares_holding {
+	position: absolute;
+	padding-top: 0;
+	padding-left: 75%;
+	font-family: Great Vibes;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: #0abb92
+}
 .share_text {
 	position: absolute;
 	font-family: Great Vibes;

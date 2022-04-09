@@ -96,10 +96,14 @@ def detail(request, stock_name):
         for data in nsepy.get_history(symbol=stock_name, start=one_month_ago, end=today):
             one_month_data.append(['', data.open, data.high, data.low, data.close])
         """
+        shares_holding = 0
+        if HoldingPerStock.objects.filter(user=user, share_symbol=stock_name).exists():
+            shares_holding = HoldingPerStock.objects.get(user=user, share_symbol=stock_name).quantity
 
         context = {
             'one_month_data' : one_month_data,
             'stock' : nse.get_quote(stock_name),
+            'shares_holding' : shares_holding,
         }
         return JsonResponse(context)
 
@@ -182,7 +186,12 @@ def detail(request, stock_name):
 
                 sell_share = int(request.POST['quantity'])
                 for update_report in Report.objects.filter(user=user, share_symbol=request.POST['stock']).order_by('buy_date'):
-                    sell = min(sell_share, update_report.buy_share)
+                    if update_report.sell_share:
+                        sell = min(sell_share, int(update_report.buy_share - update_report.sell_share))
+                    else:
+                        sell = min(sell_share, int(update_report.buy_share))
+                    if sell == 0:
+                        continue
                     sell_share -= sell
                     if update_report.sell_share: # if sell_share is not empty then average the price
                         updated_sell_price = (update_report.sell_price*update_report.sell_share + float(request.POST['price'])*sell)/(update_report.sell_share+sell)

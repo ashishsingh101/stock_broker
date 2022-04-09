@@ -16,6 +16,9 @@ class History(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField(null=True)
 
+    def __str__(self):
+        return (self.user.username + " " + self.share_symbol + " " + self.date_time.strftime("%Y-%m-%d %H:%M:%S"))
+
 # class TranactionHistory(models.Model):
 
 
@@ -36,7 +39,7 @@ class BuyShare(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return self.user.username
+        return self.user.username + " " + self.share_symbol + " " + self.date_time.strftime("%Y-%m-%d %H:%M:%S")
 
 
 class SellShare(models.Model):
@@ -54,6 +57,9 @@ class HoldingPerStock(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     share_symbol = models.CharField(max_length=100)
     quantity = models.IntegerField()
+
+    def __str__(self):
+        return self
 
 class Report(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -73,4 +79,4 @@ class Report(models.Model):
     gst = models.FloatField()
 
     def __str__(self):
-        return self.user.username
+        return self.share_symbol
