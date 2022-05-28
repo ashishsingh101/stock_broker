@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'media/image/logo.png' %}" />
+    <!--doughnut chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+</head>
+
+<body class="bg-black ">
+
+        
+        <div class="flex flex-row text-white justify-center text-5xl pt-[2%] gap-6">
+            <a id="logo" class='' href="{% url 'dashboard' %}">
+                <img src="{% static 'media/image/logo.png' %}" alt="home" />
+            </a>
+            <p>Portfolio</p>
+        </div>
+        <div class="grid grid-cols-12 gap-1 pt-[10%] px-[2%] justify-center items-center font-serif text-base text-blue-300">
+            <div class="col-span-2 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Symbol
+            </div>
+            <div class="col-span-2 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Name
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Avg. Price
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                %Change Day
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Change Day
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Shares
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Total Cost
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Market Val.
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Gain
+            </div>
+            <div class="col-span-1 h-full rounded-xl overflow-y-auto flex flex-col space-y-4">
+                Return
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 h-[90%] gap-1 py-[2%] px-[2%] justify-center items-center font-serif border-white border-2 border-opacity-20 text-base">
+
+            <div id="inner_container" class="col-span-2 h-full rounded-xl overflow-y-auto text-white flex flex-col space-y-4">    
+                {% for symbol_ in symbol %}
+                    <div class="">
+                        {{symbol_}}
+                    </div>    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-2 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for name_ in name %}
+                    <div class="">
+                        {{name_}}
+                    </div>    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for avg_buy_ in avg_buy %}
+                    <div class="">
+                        {{avg_buy_}}
+                    </div>    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for percentage_change_, greater in percentage_change %}
+                    {% if not greater %}
+                        <div class="text-red-500">
+                            {{percentage_change_}} %
+                        </div>    
+                    {% else %}
+                        <div class="text-green-500">
+                            {{percentage_change_}} %
+                        </div>   
+                    {% endif %}   
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for price_change_, greater in price_change %}
+                    {% if not greater %}
+                        <div class="text-red-500">
+                            {{price_change_}}
+                        </div>    
+                    {% else %}
+                        <div class="text-green-500">
+                            {{price_change_}}
+                        </div>   
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for total_shares_ in total_shares %}
+                    <div class="">
+                        {{total_shares_}}
+                    </div>    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for total_cost_ in total_cost %}
+                    <div class="">
+                        {{total_cost_}}
+                    </div>    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for market_value_ in market_value %}
+                    <div class="">
+                        {{market_value_}}
+                    </div>    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for gain_, greater in gain %}
+                    {% if not greater %}
+                        <div class="text-red-500">
+                            {{gain_}}
+                        </div>    
+                    {% else %}
+                        <div class="text-green-500">
+                            {{gain_}}
+                        </div>   
+                    {% endif %}    
+                {% endfor %}
+            </div>
+            <div id="inner_container" class="col-span-1 h-full rounded-xl overflow-y-auto  text-white flex flex-col space-y-4">
+                {% for returns_, greater in returns %}
+                    {% if not greater %}
+                        <div class="text-red-500">
+                            {{returns_}} %
+                        </div>    
+                    {% else %}
+                        <div class="text-green-500">
+                            {{returns_}} %
+                        </div>   
+                    {% endif %}   
+                {% endfor %}
+            </div>
+        </div>
+</body>
+
+<script type='text/javascript' src="{% static 'js/profile.js' %}"></script>
+
+</html>
